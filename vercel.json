@@ -1,8 +1,7 @@
 {
   "rewrites": [
-    { "source": "/privacy", "destination": "/index.html" },
-    { "source": "/privacy-policy", "destination": "/index.html" },
-    { "source": "/privacy_policy", "destination": "/privacy_policy.html" },
+    { "source": "/privacy", "destination": "/privacy_policy.html" },
+    { "source": "/privacy-policy", "destination": "/privacy_policy.html" },
     { "source": "/security", "destination": "/security_confidentiality.html" }
   ],
   "headers": [

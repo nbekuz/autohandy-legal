@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AutoHandy Master — Privacy Policy</title>
+  <title>AutoHandy Master — Legal</title>
   <style>
     :root { color-scheme: light; --brand: #ff771c; --text: #31373a; --heading: #252f37; --muted: #676c6f; }
     * { box-sizing: border-box; }
@@ -40,11 +40,7 @@
       white-space: nowrap;
     }
     .navbar-brand span { color: var(--brand); }
-    .navbar-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
+    .navbar-links { display: flex; align-items: center; gap: 4px; }
     .navbar-links a {
       padding: 8px 12px;
       border-radius: 8px;
@@ -54,29 +50,38 @@
       text-decoration: none;
       transition: color 0.15s, background 0.15s;
     }
-    .navbar-links a:hover {
-      color: var(--brand);
-      background: #fff7ed;
-    }
-    .navbar-links a.active {
-      color: var(--brand);
-      background: #fff7ed;
-    }
-    @media (max-width: 480px) {
-      .navbar-links a { padding: 8px 10px; font-size: 0.75rem; }
-    }
+    .navbar-links a:hover { color: var(--brand); background: #fff7ed; }
+    .navbar-links a.active { color: var(--brand); background: #fff7ed; }
     .page {
       max-width: 720px;
       margin: 0 auto;
-      padding: 28px 20px 48px;
+      padding: 40px 20px 48px;
     }
-    .page a { color: var(--brand); }
-    h1 { font-size: 1.5rem; margin-bottom: 0.25rem; color: var(--heading); }
-    .updated { font-size: 0.875rem; color: #676c6f; margin-bottom: 1.5rem; }
-    h2 { font-size: 1.1rem; margin-top: 1.75rem; color: #252f37; }
-    p, li { font-size: 0.95rem; }
-    ul { padding-left: 1.25rem; }
-    footer { margin-top: 2rem; font-size: 0.8rem; color: #9fa7ad; }
+    h1 { font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--heading); }
+    .lead { color: var(--muted); margin-bottom: 2rem; }
+    .cards { display: grid; gap: 16px; }
+    .card {
+      display: block;
+      padding: 20px 22px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .card:hover {
+      border-color: var(--brand);
+      box-shadow: 0 4px 12px rgba(255, 119, 28, 0.12);
+    }
+    .card h2 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+      color: var(--heading);
+    }
+    .card p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+    .card .arrow { color: var(--brand); font-weight: 600; margin-top: 10px; font-size: 0.875rem; }
+    footer { margin-top: 2.5rem; font-size: 0.8rem; color: #9fa7ad; }
   </style>
 </head>
 <body>
@@ -84,90 +89,33 @@
     <div class="navbar-inner">
       <a href="/" class="navbar-brand">Auto<span>Handy</span></a>
       <nav class="navbar-links" aria-label="Legal documents">
-        <a href="/" class="active">Privacy Policy</a>
+        <a href="/privacy_policy.html">Privacy Policy</a>
         <a href="/security_confidentiality.html">Security</a>
       </nav>
     </div>
   </header>
 
   <main class="page">
-  <h1>Privacy Policy</h1>
-  <p class="updated">AutoHandy Master · Last updated: May 22, 2026</p>
+    <h1>AutoHandy Master — Legal</h1>
+    <p class="lead">
+      Official documents for the Master (provider) app: privacy, payments via Stripe Connect,
+      and security obligations when serving driver orders on the AutoHandy platform.
+    </p>
 
-  <p>
-    This Privacy Policy describes how <strong>AutoHandy Master</strong> (“we”, “the app”) collects,
-    uses, and protects information when you use our mobile application as a service technician or
-    workshop provider connected to the AutoHandy platform.
-  </p>
+    <div class="cards">
+      <a href="/privacy_policy.html" class="card">
+        <h2>Privacy Policy</h2>
+        <p>Data we collect, how driver orders and Stripe payouts work, and your rights.</p>
+        <div class="arrow">Read policy →</div>
+      </a>
+      <a href="/security_confidentiality.html" class="card">
+        <h2>Security &amp; Confidentiality</h2>
+        <p>Account safety, customer data, Stripe Connect rules, and provider responsibilities.</p>
+        <div class="arrow">Read document →</div>
+      </a>
+    </div>
 
-  <h2>1. Who we are</h2>
-  <p>
-    AutoHandy Master is the provider-facing application for AutoHandy. It helps you receive and manage
-    repair orders, communicate with customers, navigate to job locations, manage your workshop profile,
-    and receive payouts for completed work.
-  </p>
-
-  <h2>2. Information we collect</h2>
-  <ul>
-    <li><strong>Account data:</strong> phone number, name, email (if provided), profile photo, workshop address, and role (Master).</li>
-    <li><strong>Verification:</strong> one-time codes sent by SMS for sign-in and account security.</li>
-    <li><strong>Location:</strong> GPS coordinates when you share your position, navigate to a customer, or update your service area — only with your permission.</li>
-    <li><strong>Order &amp; work data:</strong> accepted jobs, schedules, photos you upload, chat messages, service items, reviews, and completion records.</li>
-    <li><strong>Payment data:</strong> payout setup and transaction history are processed via <strong>Stripe Connect</strong>; we do not store full bank account numbers on our servers.</li>
-    <li><strong>Device data:</strong> push notification tokens (Firebase), app version, and technical logs needed to operate and secure the service.</li>
-  </ul>
-
-  <h2>3. How we use your information</h2>
-  <ul>
-    <li>Authenticate you and maintain your account.</li>
-    <li>Match you with customer orders (including urgent/SOS and custom requests).</li>
-    <li>Enable in-app chat, maps, and order status updates.</li>
-    <li>Calculate performance metrics (ratings, acceptance/completion rates, earnings summaries).</li>
-    <li>Process payouts and show checkout/payment history.</li>
-    <li>Send service-related push notifications (new orders, messages, status changes).</li>
-    <li>Improve reliability, prevent fraud, and comply with legal obligations.</li>
-  </ul>
-
-  <h2>4. Sharing with third parties</h2>
-  <p>We may share data only as needed to run the service, including with:</p>
-  <ul>
-    <li>Customers involved in your active orders (name, contact, job details you choose to share).</li>
-    <li><strong>Stripe</strong> for Connect onboarding, balances, and payouts.</li>
-    <li><strong>Google Maps / Directions</strong> for routing and map display.</li>
-    <li><strong>Firebase</strong> for push messaging.</li>
-    <li>Cloud hosting and API providers that process data on our behalf under contractual safeguards.</li>
-  </ul>
-  <p>We do not sell your personal information.</p>
-
-  <h2>5. Retention</h2>
-  <p>
-    We keep account and order records for as long as your account is active and as required for
-    accounting, disputes, and legal compliance. You may request deletion of your account subject to
-    outstanding orders and payout obligations.
-  </p>
-
-  <h2>6. Your choices &amp; rights</h2>
-  <ul>
-    <li>Update profile information in the app.</li>
-    <li>Control location and notification permissions in device settings.</li>
-    <li>Contact support to access, correct, or delete personal data where applicable by law.</li>
-  </ul>
-
-  <h2>7. Children</h2>
-  <p>The app is not intended for users under 18 years of age.</p>
-
-  <h2>8. Changes</h2>
-  <p>
-    We may update this policy. Material changes will be reflected in the app or on our website.
-    Continued use after changes means you accept the updated policy.
-  </p>
-
-  <h2>9. Contact</h2>
-  <p>
-    Questions about privacy: <a href="mailto:support@autohandy.com">support@autohandy.com</a>
-  </p>
-
-  <footer>© AutoHandy. All rights reserved.</footer>
+    <footer>© AutoHandy. All rights reserved.</footer>
   </main>
 </body>
 </html>

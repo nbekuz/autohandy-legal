@@ -84,7 +84,7 @@
     <div class="navbar-inner">
       <a href="/" class="navbar-brand">Auto<span>Handy</span></a>
       <nav class="navbar-links" aria-label="Legal documents">
-        <a href="/" class="active">Privacy Policy</a>
+        <a href="/privacy_policy.html" class="active">Privacy Policy</a>
         <a href="/security_confidentiality.html">Security</a>
       </nav>
     </div>
@@ -112,8 +112,8 @@
     <li><strong>Account data:</strong> phone number, name, email (if provided), profile photo, workshop address, and role (Master).</li>
     <li><strong>Verification:</strong> one-time codes sent by SMS for sign-in and account security.</li>
     <li><strong>Location:</strong> GPS coordinates when you share your position, navigate to a customer, or update your service area — only with your permission.</li>
-    <li><strong>Order &amp; work data:</strong> accepted jobs, schedules, photos you upload, chat messages, service items, reviews, and completion records.</li>
-    <li><strong>Payment data:</strong> payout setup and transaction history are processed via <strong>Stripe Connect</strong>; we do not store full bank account numbers on our servers.</li>
+    <li><strong>Order &amp; work data:</strong> orders placed by <strong>drivers</strong> (customers on the AutoHandy platform), job details, vehicle info, schedules, photos, chat, service items, reviews, and completion records.</li>
+    <li><strong>Payment &amp; payout data:</strong> Stripe Connect account ID, verification status, payout history, order amounts, platform fees, and bank/debit details you submit to Stripe (not stored in full on our servers).</li>
     <li><strong>Device data:</strong> push notification tokens (Firebase), app version, and technical logs needed to operate and secure the service.</li>
   </ul>
 
@@ -123,46 +123,83 @@
     <li>Match you with customer orders (including urgent/SOS and custom requests).</li>
     <li>Enable in-app chat, maps, and order status updates.</li>
     <li>Calculate performance metrics (ratings, acceptance/completion rates, earnings summaries).</li>
-    <li>Process payouts and show checkout/payment history.</li>
+    <li>Route driver payments for completed real-world services and transfer your share to your Stripe Connect account.</li>
+    <li>Display earnings, payout history, and Connect onboarding status in the app.</li>
     <li>Send service-related push notifications (new orders, messages, status changes).</li>
     <li>Improve reliability, prevent fraud, and comply with legal obligations.</li>
   </ul>
 
-  <h2>4. Sharing with third parties</h2>
+  <h2>4. Payments, driver orders &amp; Stripe Connect</h2>
+  <p>
+    AutoHandy Master is used by service providers (“Masters”) who perform <strong>real on-site automotive
+    services</strong> for customers who use the driver (customer) app. This section explains how money
+    moves on the platform.
+  </p>
+
+  <h3 style="font-size:1rem;margin-top:1.25rem;color:#252f37;">4.1 How orders and payment work</h3>
+  <ul>
+    <li>A <strong>driver</strong> places a repair or service order through the AutoHandy customer application (standard, urgent/SOS, or custom request).</li>
+    <li>You, as Master, may <strong>accept</strong> the order in AutoHandy Master and perform the agreed service at the job location.</li>
+    <li>Payment for the order is collected through the <strong>platform checkout</strong> (card or other methods supported by AutoHandy and Stripe). You do not manually charge the driver’s card in the Master app.</li>
+    <li>After the job is marked complete and any platform review or hold period applies, your <strong>net earnings</strong> for that order are scheduled for payout to your connected account.</li>
+  </ul>
+
+  <h3 style="font-size:1rem;margin-top:1.25rem;color:#252f37;">4.2 Stripe Connect (real payout account)</h3>
+  <p>
+    To receive money for completed work, you must onboard a <strong>real Stripe Connect account</strong>
+    in your own name or registered business. This is not a virtual balance only inside the app — payouts
+    are sent through Stripe to the bank or debit account you verify with Stripe.
+  </p>
+  <ul>
+    <li>We share with Stripe: identity and business information, tax details where required, Connect account status, order IDs, amounts, fees, and payout instructions.</li>
+    <li>We <strong>do not</strong> store full card numbers or full bank account numbers on AutoHandy servers. Stripe is the payment processor and payout provider.</li>
+    <li>The app shows payout history, available balance, and onboarding steps; sensitive banking data is entered on Stripe-hosted flows where applicable.</li>
+    <li>AutoHandy may retain a <strong>platform fee</strong> or commission per order; the net amount paid to you is shown in the app before payout.</li>
+    <li>Refunds, cancellations, and chargebacks are handled according to platform rules, order status, and Stripe’s policies; adjustments may reduce or delay payouts.</li>
+  </ul>
+
+  <h3 style="font-size:1rem;margin-top:1.25rem;color:#252f37;">4.3 What we do not do</h3>
+  <ul>
+    <li>We do not sell your personal or payment information.</li>
+    <li>We do not pay Masters outside Stripe Connect for platform orders except where explicitly stated by support in writing.</li>
+    <li>Cash or off-platform payments for orders originated on AutoHandy may violate platform terms and are not covered by this payout flow.</li>
+  </ul>
+
+  <h2>5. Sharing with third parties</h2>
   <p>We may share data only as needed to run the service, including with:</p>
   <ul>
-    <li>Customers involved in your active orders (name, contact, job details you choose to share).</li>
-    <li><strong>Stripe</strong> for Connect onboarding, balances, and payouts.</li>
+    <li><strong>Drivers (customers)</strong> involved in your active orders — limited contact and job details needed to perform the service.</li>
+    <li><strong>Stripe</strong> — Connect onboarding, payment capture, fraud prevention, balances, transfers, and tax reporting where applicable.</li>
     <li><strong>Google Maps / Directions</strong> for routing and map display.</li>
     <li><strong>Firebase</strong> for push messaging.</li>
     <li>Cloud hosting and API providers that process data on our behalf under contractual safeguards.</li>
   </ul>
   <p>We do not sell your personal information.</p>
 
-  <h2>5. Retention</h2>
+  <h2>6. Retention</h2>
   <p>
     We keep account and order records for as long as your account is active and as required for
     accounting, disputes, and legal compliance. You may request deletion of your account subject to
     outstanding orders and payout obligations.
   </p>
 
-  <h2>6. Your choices &amp; rights</h2>
+  <h2>7. Your choices &amp; rights</h2>
   <ul>
     <li>Update profile information in the app.</li>
     <li>Control location and notification permissions in device settings.</li>
     <li>Contact support to access, correct, or delete personal data where applicable by law.</li>
   </ul>
 
-  <h2>7. Children</h2>
+  <h2>8. Children</h2>
   <p>The app is not intended for users under 18 years of age.</p>
 
-  <h2>8. Changes</h2>
+  <h2>9. Changes</h2>
   <p>
     We may update this policy. Material changes will be reflected in the app or on our website.
     Continued use after changes means you accept the updated policy.
   </p>
 
-  <h2>9. Contact</h2>
+  <h2>10. Contact</h2>
   <p>
     Questions about privacy: <a href="mailto:support@autohandy.com">support@autohandy.com</a>
   </p>
