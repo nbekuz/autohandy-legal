@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { MenuOutlined } from '@ant-design/icons-vue'
+import AppLogo from './AppLogo.vue'
 
 const route = useRoute()
 const drawerOpen = ref(false)
@@ -29,16 +30,9 @@ watch(() => route.fullPath, () => {
     <div class="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-8">
       <RouterLink
         to="/"
-        class="flex min-w-0 items-center gap-2.5 transition-opacity hover:opacity-80"
+        class="no-underline transition-opacity hover:opacity-80"
       >
-        <img
-          src="/assets/logo.png"
-          alt=""
-          class="h-8 w-8 shrink-0 rounded-lg object-cover shadow-sm ring-1 ring-brand/10 sm:h-9 sm:w-9"
-        />
-        <span class="truncate text-base font-bold text-ink-heading sm:text-lg">
-          Auto<span class="text-brand">Handy</span>
-        </span>
+        <AppLogo size="sm" show-text />
       </RouterLink>
 
       <!-- Desktop nav -->
@@ -47,7 +41,7 @@ watch(() => route.fullPath, () => {
           v-for="link in navLinks"
           :key="link.label"
           :to="link.to"
-          class="rounded-lg px-3 py-2 text-sm font-medium transition-colors"
+          class="no-underline rounded-lg px-3 py-2 text-sm font-medium transition-colors"
           :class="
             isActive(link.to.name as string)
               ? 'bg-brand-light text-brand'
@@ -83,7 +77,7 @@ watch(() => route.fullPath, () => {
           v-for="link in navLinks"
           :key="link.label"
           :to="link.to"
-          class="rounded-xl px-4 py-3 text-base font-medium transition-colors"
+          class="no-underline rounded-xl px-4 py-3 text-base font-medium transition-colors"
           :class="
             isActive(link.to.name as string)
               ? 'bg-brand-light text-brand'

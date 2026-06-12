@@ -17,6 +17,9 @@ export default {
           heading: '#252f37',
           muted: '#676c6f',
         },
+        logo: {
+          wrap: '#3d4a57',
+        },
       },
       fontFamily: {
         sans: [

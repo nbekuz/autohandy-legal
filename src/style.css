@@ -8,10 +8,25 @@ html {
 
 body {
   @apply m-0 bg-slate-50 font-sans text-ink antialiased;
+ 
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.router-link-active,
+a.router-link-exact-active {
+  text-decoration: none;
 }
 
 a {
   @apply transition-colors;
+}
+
+.ant-breadcrumb a,
+.ant-breadcrumb a:hover {
+  text-decoration: none !important;
 }
 
 .prose-legal h2 {

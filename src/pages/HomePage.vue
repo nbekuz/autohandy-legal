@@ -9,6 +9,7 @@ import {
   ToolOutlined,
 } from '@ant-design/icons-vue'
 import { usePageSeo } from '@/composables/usePageSeo'
+import AppLogo from '@/components/AppLogo.vue'
 import StoreBadges from '@/components/StoreBadges.vue'
 
 usePageSeo({
@@ -112,7 +113,7 @@ const steps = [
               <StoreBadges />
               <RouterLink
                 to="/contact"
-                class="inline-flex w-full items-center justify-center rounded-xl border border-brand/20 bg-white px-5 py-2.5 text-sm font-semibold text-ink-heading shadow-sm transition-all hover:border-brand hover:bg-brand-light hover:text-brand sm:w-auto"
+                class="no-underline inline-flex w-full items-center justify-center rounded-xl border border-brand/20 bg-white px-5 py-2.5 text-sm font-semibold text-ink-heading shadow-sm transition-all hover:border-brand hover:bg-brand-light hover:text-brand sm:w-auto"
               >
                 Связаться с поддержкой
               </RouterLink>
@@ -121,12 +122,10 @@ const steps = [
 
           <div class="flex w-full shrink-0 justify-center lg:w-auto">
             <div class="relative">
-              <div class="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-brand/20 to-brand/5 blur-2xl" />
-              <img
-                src="/assets/logo.png"
-                alt="AutoHandy Master"
-                class="relative h-36 w-36 rounded-[1.75rem] object-cover shadow-2xl ring-2 ring-brand/15 sm:h-44 sm:w-44 lg:h-52 lg:w-52"
-              />
+              <div class="absolute -inset-4 rounded-[2rem] bg-brand/10 blur-2xl" />
+              <div class="relative max-sm:rounded-xl rounded-3xl">
+                <AppLogo size="lg" />
+              </div>
             </div>
           </div>
         </div>
