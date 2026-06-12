@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply m-0 bg-slate-50 font-sans text-ink antialiased;
+}
+
+a {
+  @apply transition-colors;
+}
+
+.prose-legal h2 {
+  @apply mt-7 text-lg font-semibold text-ink-heading;
+}
+
+.prose-legal h3 {
+  @apply mt-5 text-base font-semibold text-ink-heading;
+}
+
+.prose-legal p,
+.prose-legal li {
+  @apply text-[0.95rem] leading-relaxed text-ink;
+}
+
+.prose-legal ul {
+  @apply list-disc space-y-1 pl-5;
+}
+
+.prose-legal a {
+  @apply text-brand hover:text-brand-dark hover:underline;
+}

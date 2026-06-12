@@ -1,121 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AutoHandy Master — Legal</title>
-  <style>
-    :root { color-scheme: light; --brand: #ff771c; --text: #31373a; --heading: #252f37; --muted: #676c6f; }
-    * { box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      margin: 0;
-      background: #f8fafc;
-    }
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #fff;
-      border-bottom: 1px solid #e2e8f0;
-      box-shadow: 0 1px 3px rgba(37, 47, 55, 0.06);
-    }
-    .navbar-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 20px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--heading);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .navbar-brand span { color: var(--brand); }
-    .navbar-links { display: flex; align-items: center; gap: 4px; }
-    .navbar-links a {
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s, background 0.15s;
-    }
-    .navbar-links a:hover { color: var(--brand); background: #fff7ed; }
-    .navbar-links a.active { color: var(--brand); background: #fff7ed; }
-    .page {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 40px 20px 48px;
-    }
-    h1 { font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--heading); }
-    .lead { color: var(--muted); margin-bottom: 2rem; }
-    .cards { display: grid; gap: 16px; }
-    .card {
-      display: block;
-      padding: 20px 22px;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.15s, box-shadow 0.15s;
-    }
-    .card:hover {
-      border-color: var(--brand);
-      box-shadow: 0 4px 12px rgba(255, 119, 28, 0.12);
-    }
-    .card h2 {
-      margin: 0 0 6px;
-      font-size: 1.1rem;
-      color: var(--heading);
-    }
-    .card p { margin: 0; font-size: 0.9rem; color: var(--muted); }
-    .card .arrow { color: var(--brand); font-weight: 600; margin-top: 10px; font-size: 0.875rem; }
-    footer { margin-top: 2.5rem; font-size: 0.8rem; color: #9fa7ad; }
-  </style>
-</head>
-<body>
-  <header class="navbar">
-    <div class="navbar-inner">
-      <a href="/" class="navbar-brand">Auto<span>Handy</span></a>
-      <nav class="navbar-links" aria-label="Legal documents">
-        <a href="/privacy_policy.html">Privacy Policy</a>
-        <a href="/security_confidentiality.html">Security</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="page">
-    <h1>AutoHandy Master — Legal</h1>
-    <p class="lead">
-      Official documents for the Master (provider) app: privacy, payments via Stripe Connect,
-      and security obligations when serving driver orders on the AutoHandy platform.
-    </p>
-
-    <div class="cards">
-      <a href="/privacy_policy.html" class="card">
-        <h2>Privacy Policy</h2>
-        <p>Data we collect, how driver orders and Stripe payouts work, and your rights.</p>
-        <div class="arrow">Read policy →</div>
-      </a>
-      <a href="/security_confidentiality.html" class="card">
-        <h2>Security &amp; Confidentiality</h2>
-        <p>Account safety, customer data, Stripe Connect rules, and provider responsibilities.</p>
-        <div class="arrow">Read document →</div>
-      </a>
-    </div>
-
-    <footer>© AutoHandy. All rights reserved.</footer>
-  </main>
-</body>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoHandy Master</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
