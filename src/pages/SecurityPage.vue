@@ -1,24 +1,38 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { usePageSeo } from '@/composables/usePageSeo'
+import { useSiteMode } from '@/composables/useSiteMode'
 import PageHeader from '@/components/PageHeader.vue'
 
-usePageSeo({
-  title: 'AutoHandy Master — Security & Terms of Use',
-  description:
-    'Account security, customer data privacy, Stripe Connect rules, and technician responsibilities when handling driver orders on the AutoHandy platform.',
-})
+const { isTeam, appName } = useSiteMode()
+
+usePageSeo(
+  computed(() => ({
+    title: `${appName.value} — Security & Terms of Use`,
+    description: isTeam.value
+      ? 'Security and terms for AutoHandy Team: account safety, customer data privacy, Stripe Connect rules, and technician responsibilities.'
+      : 'Security and terms for AutoHandy: account safety, data privacy, payments, and driver responsibilities.',
+  })),
+)
+
+const subtitle = computed(() => `${appName.value} · Last updated: May 22, 2026`)
 </script>
 
 <template>
   <div>
     <PageHeader
       title="Security & Terms of Use"
-      subtitle="AutoHandy Master · Last updated: May 22, 2026"
+      :subtitle="subtitle"
       breadcrumb="Terms of Use"
     />
     <article class="mx-auto max-w-3xl px-4 py-8 sm:px-8 sm:py-12 prose-legal">
-    <p>
-      This document describes how <strong>AutoHandy Master</strong> protects your account,
+    <p v-if="!isTeam">
+      This document describes how <strong>AutoHandy</strong> protects your account
+      and personal information. By using the app, you agree to use the platform
+      responsibly as outlined below.
+    </p>
+    <p v-else>
+      This document describes how <strong>AutoHandy Team</strong> protects your account,
       customer information, and business data. By using the app, you agree to handle
       confidential information responsibly as outlined below.
     </p>
@@ -65,7 +79,7 @@ usePageSeo({
 
     <h3>3.3 Customer payment data</h3>
     <ul>
-      <li>The Master app does <strong>not</strong> collect or store driver card numbers. Card payments go through the platform and Stripe.</li>
+      <li>AutoHandy Team does <strong>not</strong> collect or store driver card numbers. Card payments go through the platform and Stripe.</li>
       <li>Do not photograph or copy payment screens, receipts with full card numbers, or Stripe onboarding URLs on untrusted devices.</li>
     </ul>
 
@@ -84,7 +98,7 @@ usePageSeo({
 
     <h2>6. Device & network security</h2>
     <ul>
-      <li>Keep your phone OS and AutoHandy Master app up to date.</li>
+      <li>Keep your phone OS and AutoHandy or AutoHandy Team app up to date.</li>
       <li>Avoid sensitive actions on unsecured public Wi‑Fi when possible.</li>
       <li>Enable device lock (PIN, biometrics) in case your phone is lost.</li>
     </ul>

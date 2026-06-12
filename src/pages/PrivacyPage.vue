@@ -1,39 +1,57 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { usePageSeo } from '@/composables/usePageSeo'
+import { useSiteMode } from '@/composables/useSiteMode'
 import PageHeader from '@/components/PageHeader.vue'
 
-usePageSeo({
-  title: 'AutoHandy Master — Privacy Policy',
-  description:
-    'AutoHandy Master privacy policy: what data we collect, how driver orders work, Stripe Connect payouts, and your rights.',
-})
+const { isTeam, appName, pageRoute } = useSiteMode()
+
+usePageSeo(
+  computed(() => ({
+    title: `${appName.value} — Privacy Policy`,
+    description: isTeam.value
+      ? 'AutoHandy Team privacy policy: what technician data we collect, how driver orders work, Stripe Connect payouts, and your rights.'
+      : 'AutoHandy privacy policy: what driver data we collect, how orders work, payments, and your rights.',
+  })),
+)
+
+const subtitle = computed(() => `${appName.value} · Last updated: May 22, 2026`)
 </script>
 
 <template>
   <div>
     <PageHeader
       title="Privacy Policy"
-      subtitle="AutoHandy Master · Last updated: May 22, 2026"
+      :subtitle="subtitle"
       breadcrumb="Privacy Policy"
     />
     <article class="mx-auto max-w-3xl px-4 py-8 sm:px-8 sm:py-12 prose-legal">
-    <p>
-      This Privacy Policy describes how <strong>AutoHandy Master</strong>
+    <p v-if="!isTeam">
+      This Privacy Policy describes how <strong>AutoHandy</strong>
       ("we", "the app") collects, uses, and protects information when you use
-      our mobile application as a technician or auto shop connected to the AutoHandy platform.
+      our mobile app as a driver requesting on-site car repair and maintenance.
+    </p>
+    <p v-else>
+      This Privacy Policy describes how <strong>AutoHandy Team</strong>
+      ("we", "the app") collects, uses, and protects information when you use
+      our mobile app as a technician or auto shop on the AutoHandy platform.
     </p>
 
     <h2>1. Who we are</h2>
-    <p>
-      AutoHandy Master is the app for service providers on the AutoHandy platform. It helps you accept
-      and manage repair orders, communicate with customers, navigate to job sites,
-      maintain your shop profile, and receive payouts for completed services.
+    <p v-if="!isTeam">
+      AutoHandy is the driver app for requesting on-site car repair and maintenance
+      from verified technicians on the AutoHandy platform.
+    </p>
+    <p v-else>
+      AutoHandy Team is the technician app for accepting and managing platform orders,
+      communicating with customers, navigating to job sites, maintaining shop profiles,
+      and receiving payouts for completed services.
     </p>
 
     <h2>2. Data we collect</h2>
     <ul>
-      <li><strong>Account data:</strong> phone number, name, email (if provided), profile photo, shop address, and role (Master).</li>
+      <li><strong>Account data:</strong> phone number, name, email (if provided), profile photo, vehicle or shop details, and app role (driver or technician).</li>
       <li><strong>Verification:</strong> one-time SMS codes for sign-in and account security.</li>
       <li><strong>Location:</strong> GPS coordinates when sharing position, navigating to a customer, or updating your service area — only with your permission.</li>
       <li><strong>Orders & work:</strong> orders from <strong>drivers</strong> (platform customers), job details, vehicle data, schedule, photos, chat, services, reviews, and completion records.</li>
@@ -55,16 +73,16 @@ usePageSeo({
 
     <h2>4. Payments, driver orders & Stripe Connect</h2>
     <p>
-      AutoHandy Master is used by service providers ("Masters") who deliver
-      <strong>real on-site automotive services</strong> to customers through the driver app.
+      AutoHandy Team is used by technicians who deliver
+      <strong>real on-site automotive services</strong> to drivers who book through the AutoHandy app.
       Below is how payments work on the platform.
     </p>
 
     <h3>4.1 How orders and payment work</h3>
     <ul>
-      <li>A <strong>driver</strong> places a repair or maintenance order through the AutoHandy customer app (standard, urgent/SOS, or custom).</li>
-      <li>You as a Master <strong>accept</strong> the order in AutoHandy Master and perform the agreed service on site.</li>
-      <li>Order payment is processed through <strong>platform payment</strong> (card or other methods supported by AutoHandy and Stripe). You do not manually charge the driver's card in the Master app.</li>
+      <li>A <strong>driver</strong> places a repair or maintenance order through the <strong>AutoHandy</strong> app (standard, urgent/SOS, or custom).</li>
+      <li>A technician <strong>accepts</strong> the order in <strong>AutoHandy Team</strong> and performs the agreed service on site.</li>
+      <li>Order payment is processed through <strong>platform payment</strong> (card or other methods supported by AutoHandy and Stripe). Technicians do not manually charge the driver's card in AutoHandy Team.</li>
       <li>After the work is completed and any review or hold period, your <strong>net earnings</strong> for the order are scheduled for payout to your connected account.</li>
     </ul>
 
@@ -85,7 +103,7 @@ usePageSeo({
     <h3>4.3 What we do not do</h3>
     <ul>
       <li>We do not sell your personal or payment data.</li>
-      <li>We do not pay Masters outside Stripe Connect for platform orders unless explicitly stated in writing by support.</li>
+      <li>We do not pay technicians outside Stripe Connect for platform orders unless explicitly stated in writing by support.</li>
       <li>Cash or off-platform payments for orders created in AutoHandy may violate platform terms and are not covered by this payout process.</li>
     </ul>
 
@@ -127,7 +145,7 @@ usePageSeo({
     <p>
       Privacy questions:
       <a href="mailto:support@autohandy.com">support@autohandy.com</a> or our
-      <RouterLink to="/contact">contact page</RouterLink>.
+      <RouterLink :to="pageRoute('contact')">contact page</RouterLink>.
     </p>
     </article>
   </div>

@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { useSiteMode } from '@/composables/useSiteMode'
 
 defineProps<{
   title: string
   subtitle?: string
   breadcrumb: string
 }>()
+
+const { homeRoute } = useSiteMode()
 </script>
 
 <template>
@@ -13,7 +16,7 @@ defineProps<{
     <div class="mx-auto max-w-3xl px-4 py-8 sm:px-8 sm:py-10">
       <a-breadcrumb class="!mb-4">
         <a-breadcrumb-item>
-          <RouterLink to="/" class="no-underline text-ink-muted hover:text-brand">Home</RouterLink>
+          <RouterLink :to="homeRoute" class="no-underline text-ink-muted hover:text-brand">Home</RouterLink>
         </a-breadcrumb-item>
         <a-breadcrumb-item>{{ breadcrumb }}</a-breadcrumb-item>
       </a-breadcrumb>

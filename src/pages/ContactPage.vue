@@ -3,55 +3,73 @@ import { computed } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { MailOutlined } from '@ant-design/icons-vue'
 import { usePageSeo } from '@/composables/usePageSeo'
+import { useSiteMode } from '@/composables/useSiteMode'
 import PageHeader from '@/components/PageHeader.vue'
 
-usePageSeo({
-  title: 'AutoHandy Master — Contact & Support',
-  description:
-    'Contact AutoHandy Master support for help with your account, orders, Stripe Connect payouts, privacy requests, and bug reports.',
-})
-
 const route = useRoute()
+const { isTeam, appName, pageRoute } = useSiteMode()
+
+usePageSeo(
+  computed(() => ({
+    title: `${appName.value} — Contact & Support`,
+    description: isTeam.value
+      ? 'Contact AutoHandy Team support for help with your technician account, orders, Stripe Connect payouts, privacy, and bug reports.'
+      : 'Contact AutoHandy support for help with your driver account, orders, privacy requests, and bug reports.',
+  })),
+)
 
 const isBugReport = computed(() => route.query.topic === 'bug')
 
-const contactSections = [
-  {
-    key: 'general',
-    title: 'General support',
-    description: 'Account access, orders, app issues, and general questions.',
-    email: 'support@autohandy.com',
-    subject: '',
-  },
-  {
-    key: 'bug',
-    title: 'Report a bug',
-    description: 'Describe the issue, steps to reproduce, and your device model — we will investigate.',
-    email: 'support@autohandy.com',
-    subject: 'Bug report — AutoHandy Master',
-  },
-  {
-    key: 'privacy',
-    title: 'Privacy & data',
-    description: 'Requests to access, correct, or delete personal data under applicable law.',
-    email: 'support@autohandy.com',
-    subject: 'Privacy request — AutoHandy Master',
-  },
-  {
-    key: 'security',
-    title: 'Security',
-    description: 'Report a vulnerability, data breach, or misuse of customer information.',
-    email: 'support@autohandy.com',
-    subject: 'Security report — AutoHandy Master',
-  },
-  {
-    key: 'payout',
-    title: 'Payouts & Stripe Connect',
-    description: 'Missing or incorrect payouts, verification, and Connect account questions.',
-    email: 'support@autohandy.com',
-    subject: 'Payout question — AutoHandy Master',
-  },
-]
+const contactSections = computed(() => {
+  const sections = [
+    {
+      key: 'general',
+      title: 'General support',
+      description: 'Account access, orders, app issues, and general questions.',
+      email: 'support@autohandy.com',
+      subject: '',
+    },
+    {
+      key: 'bug',
+      title: 'Report a bug',
+      description: 'Describe the issue, steps to reproduce, and your device model — we will investigate.',
+      email: 'support@autohandy.com',
+      subject: `Bug report — ${appName.value}`,
+    },
+    {
+      key: 'privacy',
+      title: 'Privacy & data',
+      description: 'Requests to access, correct, or delete personal data under applicable law.',
+      email: 'support@autohandy.com',
+      subject: `Privacy request — ${appName.value}`,
+    },
+    {
+      key: 'security',
+      title: 'Security',
+      description: 'Report a vulnerability, data breach, or misuse of customer information.',
+      email: 'support@autohandy.com',
+      subject: `Security report — ${appName.value}`,
+    },
+  ]
+
+  if (isTeam.value) {
+    sections.push({
+      key: 'payout',
+      title: 'Payouts & Stripe Connect',
+      description: 'Missing or incorrect payouts, verification, and Connect account questions.',
+      email: 'support@autohandy.com',
+      subject: 'Payout question — AutoHandy Team',
+    })
+  }
+
+  return sections
+})
+
+const subtitle = computed(() =>
+  isTeam.value
+    ? 'Help with your technician account, orders, payouts, privacy, and bug reports.'
+    : 'Help with your driver account, orders, privacy, and bug reports.',
+)
 
 function mailto(email: string, subject: string) {
   const params = subject ? `?subject=${encodeURIComponent(subject)}` : ''
@@ -63,7 +81,7 @@ function mailto(email: string, subject: string) {
   <div>
     <PageHeader
       title="Contact"
-      subtitle="Help with your account, orders, payouts, privacy, and bug reports."
+      :subtitle="subtitle"
       breadcrumb="Contact"
     />
     <div class="mx-auto max-w-3xl px-4 py-8 sm:px-8 sm:py-12">
@@ -98,8 +116,9 @@ function mailto(email: string, subject: string) {
     <div class="prose-legal">
       <h2>How to reach us</h2>
       <ul>
-        <li>Include your registered phone number or shop name.</li>
-        <li>For order or payout questions, attach the <strong>order ID</strong> from the Master app.</li>
+        <li>Include your registered phone number{{ isTeam ? ' or shop name' : '' }}.</li>
+        <li>For order questions, attach the <strong>order ID</strong> from the {{ appName }} app.</li>
+        <li v-if="isTeam">For payout questions, include your Stripe Connect account email if different from your login.</li>
         <li>Do not email full card numbers, Stripe passwords, or secret keys.</li>
         <li>We respond to non-urgent requests within <strong>2 business days</strong>.</li>
       </ul>
@@ -120,9 +139,9 @@ function mailto(email: string, subject: string) {
 
       <p class="text-sm text-ink-muted">
         Related documents:
-        <RouterLink to="/privacy">Privacy Policy</RouterLink>
+        <RouterLink :to="pageRoute('privacy')">Privacy Policy</RouterLink>
         ·
-        <RouterLink to="/security">Terms of Use</RouterLink>
+        <RouterLink :to="pageRoute('security')">Terms of Use</RouterLink>
       </p>
     </div>
     </div>

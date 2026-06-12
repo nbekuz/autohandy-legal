@@ -3,10 +3,12 @@ withDefaults(
   defineProps<{
     size?: 'sm' | 'md' | 'lg'
     showText?: boolean
+    team?: boolean
   }>(),
   {
     size: 'md',
     showText: false,
+    team: false,
   },
 )
 
@@ -49,7 +51,7 @@ const textClasses = {
       class="truncate font-bold text-ink-heading"
       :class="textClasses[size]"
     >
-      Auto<span class="text-brand">Handy</span>
+      Auto<span class="text-brand">Handy</span><span v-if="team" class="text-ink-muted"> Team</span>
     </span>
   </div>
 </template>
