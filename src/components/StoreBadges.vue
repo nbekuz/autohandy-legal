@@ -44,7 +44,7 @@ const largeTextClass = computed(() =>
         badgeClass,
         'inline-flex shrink-0 items-center rounded-lg bg-black text-white no-underline transition-opacity hover:opacity-85',
       ]"
-      aria-label="Скачать в App Store"
+      aria-label="Download on the App Store"
     >
       <svg
         :class="iconClass"
@@ -57,7 +57,7 @@ const largeTextClass = computed(() =>
         />
       </svg>
       <span class="flex flex-col leading-none">
-        <span :class="[smallTextClass, 'opacity-90']">Загрузите в</span>
+        <span :class="[smallTextClass, 'opacity-90']">Download on the</span>
         <span :class="[largeTextClass, 'font-semibold']">App Store</span>
       </span>
     </a>
@@ -71,7 +71,7 @@ const largeTextClass = computed(() =>
         badgeClass,
         'inline-flex shrink-0 items-center rounded-lg bg-black text-white no-underline transition-opacity hover:opacity-85',
       ]"
-      aria-label="Скачать в Google Play"
+      aria-label="Get it on Google Play"
     >
       <svg
         :class="iconClass"
@@ -84,7 +84,7 @@ const largeTextClass = computed(() =>
         <path fill="#FFB900" d="M16.81 8.88 21.16 11.2c.51.3.51 1.32 0 1.62l-4.35 2.31-2.27-2.27 2.27-2.98z" />
       </svg>
       <span class="flex flex-col leading-none">
-        <span :class="[smallTextClass, 'opacity-90']">Доступно в</span>
+        <span :class="[smallTextClass, 'opacity-90']">Get it on</span>
         <span :class="[largeTextClass, 'font-semibold']">Google Play</span>
       </span>
     </a>

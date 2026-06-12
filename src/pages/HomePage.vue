@@ -13,64 +13,64 @@ import AppLogo from '@/components/AppLogo.vue'
 import StoreBadges from '@/components/StoreBadges.vue'
 
 usePageSeo({
-  title: 'AutoHandy Master — приложение для мастеров автосервиса',
+  title: 'AutoHandy Master — Auto Repair Technician App',
   description:
-    'AutoHandy Master помогает мастерам и автосервисам принимать заказы от водителей, управлять работой, общаться с клиентами и получать выплаты через Stripe Connect.',
+    'AutoHandy Master helps technicians and auto shops accept driver orders, manage jobs, chat with customers, and receive payouts through Stripe Connect.',
 })
 
 const features = [
   {
     icon: ThunderboltOutlined,
-    title: 'Заказы в реальном времени',
-    text: 'Получайте стандартные, срочные SOS и индивидуальные заявки от водителей на платформе AutoHandy.',
+    title: 'Real-time orders',
+    text: 'Receive standard, urgent SOS, and custom requests from drivers on the AutoHandy platform.',
   },
   {
     icon: ToolOutlined,
-    title: 'Управление работой',
-    text: 'Принимайте заказы, отслеживайте статус, загружайте фото выполненных работ и ведите историю обслуживания.',
+    title: 'Job management',
+    text: 'Accept orders, track status, upload photos of completed work, and maintain service history.',
   },
   {
     icon: MessageOutlined,
-    title: 'Чат с клиентом',
-    text: 'Общайтесь с водителем прямо в приложении — уточняйте детали, время прибытия и ход ремонта.',
+    title: 'Customer chat',
+    text: 'Message drivers directly in the app — confirm details, arrival time, and repair progress.',
   },
   {
     icon: CarOutlined,
-    title: 'Навигация и геолокация',
-    text: 'Стройте маршрут до клиента, обновляйте зону обслуживания и показывайте статус прибытия.',
+    title: 'Navigation & location',
+    text: 'Route to the customer, update your service area, and share arrival status.',
   },
   {
     icon: DollarOutlined,
-    title: 'Выплаты через Stripe Connect',
-    text: 'Получайте заработок на реальный банковский счёт после выполнения заказов — прозрачно и безопасно.',
+    title: 'Stripe Connect payouts',
+    text: 'Get paid to your real bank account after completing jobs — transparent and secure.',
   },
   {
     icon: SafetyCertificateOutlined,
-    title: 'Безопасность данных',
-    text: 'Защита аккаунта, конфиденциальность клиентов и соблюдение правил платформы.',
+    title: 'Data security',
+    text: 'Account protection, customer privacy, and platform policy compliance.',
   },
 ]
 
 const steps = [
   {
     step: '01',
-    title: 'Скачайте приложение',
-    text: 'Установите AutoHandy Master из App Store или Google Play и войдите по номеру телефона.',
+    title: 'Download the app',
+    text: 'Install AutoHandy Master from the App Store or Google Play and sign in with your phone number.',
   },
   {
     step: '02',
-    title: 'Настройте профиль',
-    text: 'Заполните данные мастерской, подключите Stripe Connect и укажите зону обслуживания.',
+    title: 'Set up your profile',
+    text: 'Add your shop details, connect Stripe Connect, and define your service area.',
   },
   {
     step: '03',
-    title: 'Принимайте заказы',
-    text: 'Получайте заявки от водителей, выполняйте работу и отмечайте заказ завершённым.',
+    title: 'Accept orders',
+    text: 'Receive requests from drivers, complete the work, and mark the order as finished.',
   },
   {
     step: '04',
-    title: 'Получайте выплаты',
-    text: 'Заработок автоматически переводится на ваш счёт Stripe после завершения заказа.',
+    title: 'Get paid',
+    text: 'Earnings are automatically transferred to your Stripe account after the order is completed.',
   },
 ]
 </script>
@@ -92,20 +92,20 @@ const steps = [
               class="mb-5 inline-flex items-center gap-2 rounded-full border border-brand/25 bg-brand-light px-3.5 py-1.5 text-xs font-semibold text-brand sm:text-sm"
             >
               <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-brand" />
-              Приложение для мастеров AutoHandy
+              AutoHandy app for technicians
             </div>
             <h1
               class="mb-4 text-3xl font-bold leading-tight tracking-tight text-ink-heading sm:mb-5 sm:text-4xl lg:text-5xl"
             >
-              Управляйте заказами.<br class="hidden sm:block" />
-              <span class="text-brand">Зарабатывайте</span> на автосервисе.
+              Manage orders.<br class="hidden sm:block" />
+              <span class="text-brand">Earn</span> from auto repair.
             </h1>
             <p
               class="mx-auto mb-8 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg lg:mx-0"
             >
-              AutoHandy Master — мобильное приложение для мастеров и автосервисов.
-              Принимайте заказы от водителей, выполняйте ремонт на месте и получайте
-              выплаты через Stripe Connect.
+              AutoHandy Master is the mobile app for technicians and auto shops.
+              Accept orders from drivers, perform on-site repairs, and receive
+              payouts through Stripe Connect.
             </p>
             <div
               class="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap lg:justify-start"
@@ -115,7 +115,7 @@ const steps = [
                 to="/contact"
                 class="no-underline inline-flex w-full items-center justify-center rounded-xl border border-brand/20 bg-white px-5 py-2.5 text-sm font-semibold text-ink-heading shadow-sm transition-all hover:border-brand hover:bg-brand-light hover:text-brand sm:w-auto"
               >
-                Связаться с поддержкой
+                Contact support
               </RouterLink>
             </div>
           </div>
@@ -137,10 +137,10 @@ const steps = [
       <div class="mx-auto max-w-5xl px-4 sm:px-8">
         <div class="mb-10 text-center sm:mb-12">
           <h2 class="mb-2 text-2xl font-bold text-ink-heading sm:mb-3 sm:text-3xl">
-            Всё необходимое для мастера
+            Everything a technician needs
           </h2>
           <p class="mx-auto max-w-2xl text-sm text-ink-muted sm:text-base">
-            От получения заказа до выплаты на счёт — всё в одном приложении.
+            From receiving an order to getting paid — all in one app.
           </p>
         </div>
 
@@ -167,10 +167,10 @@ const steps = [
       <div class="mx-auto max-w-5xl px-4 sm:px-8">
         <div class="mb-10 text-center sm:mb-12">
           <h2 class="mb-2 text-2xl font-bold text-ink-heading sm:mb-3 sm:text-3xl">
-            Как это работает
+            How it works
           </h2>
           <p class="text-sm text-ink-muted sm:text-base">
-            Начните работать на платформе AutoHandy за четыре шага
+            Start working on the AutoHandy platform in four steps
           </p>
         </div>
 
@@ -194,10 +194,10 @@ const steps = [
     <section class="border-t border-brand/10 bg-brand py-12 sm:py-16">
       <div class="mx-auto max-w-3xl px-4 text-center sm:px-8">
         <h2 class="mb-3 text-2xl font-bold text-white sm:text-3xl">
-          Скачайте AutoHandy Master
+          Download AutoHandy Master
         </h2>
         <p class="mb-8 text-sm text-white/85 sm:text-base">
-          Доступно для iOS и Android. Начните принимать заказы уже сегодня.
+          Available for iOS and Android. Start accepting orders today.
         </p>
         <div class="flex justify-center">
           <StoreBadges />
@@ -209,28 +209,28 @@ const steps = [
     <section class="border-t border-brand/10 bg-slate-50 py-12 sm:py-20">
       <div class="mx-auto max-w-3xl px-4 text-center sm:px-8">
         <h2 class="mb-4 text-2xl font-bold text-ink-heading sm:text-3xl">
-          О платформе AutoHandy
+          About the AutoHandy platform
         </h2>
         <p class="mb-4 text-sm leading-relaxed text-ink-muted sm:text-base">
-          AutoHandy объединяет водителей, которым нужен ремонт или обслуживание автомобиля,
-          и мастеров автосервиса. Водитель оформляет заказ через клиентское приложение,
-          а мастер выполняет работу через AutoHandy Master — с оплатой через платформу
-          и выплатой на Stripe Connect.
+          AutoHandy connects drivers who need car repair or maintenance
+          with auto service technicians. Drivers place orders through the customer app,
+          and technicians complete the work through AutoHandy Master — with platform payment
+          and payouts via Stripe Connect.
         </p>
         <p class="text-sm leading-relaxed text-ink-muted sm:text-base">
-          На этом сайте вы найдёте юридические документы, условия использования
-          и контакты службы поддержки.
+          On this site you will find legal documents, terms of use,
+          and support contact information.
         </p>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
           <RouterLink to="/privacy" class="w-full sm:w-auto">
             <a-button block size="large" class="!h-11 !rounded-xl">
-              Политика конфиденциальности
+              Privacy Policy
             </a-button>
           </RouterLink>
           <RouterLink to="/security" class="w-full sm:w-auto">
             <a-button block size="large" class="!h-11 !rounded-xl">
-              Условия использования
+              Terms of Use
             </a-button>
           </RouterLink>
         </div>

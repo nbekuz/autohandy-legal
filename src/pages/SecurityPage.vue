@@ -3,111 +3,111 @@ import { usePageSeo } from '@/composables/usePageSeo'
 import PageHeader from '@/components/PageHeader.vue'
 
 usePageSeo({
-  title: 'AutoHandy Master — Безопасность и условия использования',
+  title: 'AutoHandy Master — Security & Terms of Use',
   description:
-    'Безопасность аккаунта, конфиденциальность данных клиентов, правила Stripe Connect и обязанности мастеров при работе с заказами водителей на платформе AutoHandy.',
+    'Account security, customer data privacy, Stripe Connect rules, and technician responsibilities when handling driver orders on the AutoHandy platform.',
 })
 </script>
 
 <template>
   <div>
     <PageHeader
-      title="Безопасность и условия использования"
-      subtitle="AutoHandy Master · Обновлено: 22 мая 2026 г."
-      breadcrumb="Условия использования"
+      title="Security & Terms of Use"
+      subtitle="AutoHandy Master · Last updated: May 22, 2026"
+      breadcrumb="Terms of Use"
     />
     <article class="mx-auto max-w-3xl px-4 py-8 sm:px-8 sm:py-12 prose-legal">
     <p>
-      Этот документ описывает, как <strong>AutoHandy Master</strong> защищает ваш аккаунт,
-      информацию клиентов и бизнес-данные. Используя приложение, вы соглашаетесь ответственно
-      обращаться с конфиденциальной информацией, как указано ниже.
+      This document describes how <strong>AutoHandy Master</strong> protects your account,
+      customer information, and business data. By using the app, you agree to handle
+      confidential information responsibly as outlined below.
     </p>
 
-    <h2>1. Безопасность аккаунта</h2>
+    <h2>1. Account security</h2>
     <ul>
-      <li>Вход выполняется по SMS-коду (одноразовая верификация). Не передавайте коды третьим лицам.</li>
-      <li>Токены доступа хранятся в защищённом хранилище устройства, а не в открытом виде.</li>
-      <li>Выходите из аккаунта на общих устройствах. Немедленно сообщайте о подозрительном доступе.</li>
+      <li>Sign-in uses SMS codes (one-time verification). Do not share codes with anyone.</li>
+      <li>Access tokens are stored in the device's secure storage, not in plain text.</li>
+      <li>Sign out on shared devices. Report suspicious access immediately.</li>
     </ul>
 
-    <h2>2. Конфиденциальная информация клиентов</h2>
-    <p>При принятии заказа вы можете видеть имена, телефоны, адреса, данные автомобиля, фото и сообщения клиента. Вы обязуетесь:</p>
+    <h2>2. Customer confidential information</h2>
+    <p>When you accept an order, you may see customer names, phone numbers, addresses, vehicle data, photos, and messages. You agree to:</p>
     <ul>
-      <li>Использовать эти данные <strong>только</strong> для выполнения запрошенной услуги.</li>
-      <li>Не копировать, продавать и не раскрывать данные клиентов вне платформы AutoHandy.</li>
-      <li>Не связываться с клиентами для сторонней рекламы без правил платформы и согласия.</li>
-      <li>Не хранить лишние скриншоты персональных данных на личных устройствах.</li>
+      <li>Use this data <strong>only</strong> to perform the requested service.</li>
+      <li>Not copy, sell, or disclose customer data outside the AutoHandy platform.</li>
+      <li>Not contact customers for unrelated marketing without platform rules and consent.</li>
+      <li>Not keep unnecessary screenshots of personal data on personal devices.</li>
     </ul>
 
-    <h2>3. Платежи, заказы водителей и безопасность Stripe Connect</h2>
+    <h2>3. Payments, driver orders & Stripe Connect security</h2>
     <p>
-      Реальные заказы поступают от <strong>водителей</strong> на платформе AutoHandy. Заработок
-      за выполненную работу выплачивается через <strong>Stripe Connect</strong>. Соблюдайте
-      эти правила для защиты себя, клиентов и платформы.
+      Real orders come from <strong>drivers</strong> on the AutoHandy platform. Earnings
+      for completed work are paid through <strong>Stripe Connect</strong>. Follow
+      these rules to protect yourself, customers, and the platform.
     </p>
 
-    <h3>3.1 Заказы и выплаты</h3>
+    <h3>3.1 Orders and payouts</h3>
     <ul>
-      <li>Принимайте и выполняйте только заказы, созданные водителем через официальные приложения AutoHandy.</li>
-      <li>Не просите водителей платить наличными или переводом в обход платформенной оплаты — это может нарушать условия и лишает защиты платформы.</li>
-      <li>Честно отмечайте завершение работы, когда согласованная услуга выполнена; ложное завершение может привести к проверке аккаунта или удержанию выплат.</li>
-      <li>Сроки выплат зависят от статуса заказа, возможных периодов удержания, возвратов и расписания переводов Stripe, отображаемого в приложении.</li>
+      <li>Accept and complete only orders created by drivers through official AutoHandy apps.</li>
+      <li>Do not ask drivers to pay cash or transfer funds outside platform payment — this may violate terms and removes platform protection.</li>
+      <li>Mark work as completed honestly when the agreed service is done; false completion may lead to account review or payout holds.</li>
+      <li>Payout timing depends on order status, possible hold periods, refunds, and Stripe transfer schedules shown in the app.</li>
     </ul>
 
-    <h3>3.2 Ваш аккаунт Stripe Connect</h3>
+    <h3>3.2 Your Stripe Connect account</h3>
     <ul>
-      <li>Регистрируйте Connect с <strong>достоверными реальными данными</strong> (ваше имя или законный бизнес). Ложные сведения могут привести к блокировке Stripe или платформы.</li>
-      <li>Банковские и идентификационные данные передаются <strong>Stripe</strong> по их стандартам безопасности и KYC — полностью не хранятся на серверах AutoHandy.</li>
-      <li>Не передавайте пароль Stripe, секретные ключи или ссылки верификации лицам, представляющимся «поддержкой» вне официальных каналов.</li>
-      <li>Не создавайте фиктивные заказы, не завышайте цены и не сговаривайтесь с водителями для мошеннических выплат.</li>
-      <li>О пропущенных или неверных выплатах сообщайте на <a href="mailto:support@autohandy.com">support@autohandy.com</a> с указанием ID заказа; не публикуйте банковские данные в открытых каналах.</li>
+      <li>Register Connect with <strong>accurate real information</strong> (your name or legal business). False details may result in Stripe or platform suspension.</li>
+      <li>Bank and identity data is sent to <strong>Stripe</strong> under their security and KYC standards — not stored in full on AutoHandy servers.</li>
+      <li>Do not share your Stripe password, secret keys, or verification links with anyone claiming to be "support" outside official channels.</li>
+      <li>Do not create fake orders, inflate prices, or collude with drivers for fraudulent payouts.</li>
+      <li>Report missing or incorrect payouts to <a href="mailto:support@autohandy.com">support@autohandy.com</a> with the order ID; do not post bank details in public channels.</li>
     </ul>
 
-    <h3>3.3 Платёжные данные клиентов</h3>
+    <h3>3.3 Customer payment data</h3>
     <ul>
-      <li>Приложение Master <strong>не</strong> собирает и не хранит номера карт водителей. Оплата картой проходит через платформу и Stripe.</li>
-      <li>Не фотографируйте и не копируйте экраны оплаты, чеки с полными номерами карт или URL подключения Stripe на ненадёжных устройствах.</li>
+      <li>The Master app does <strong>not</strong> collect or store driver card numbers. Card payments go through the platform and Stripe.</li>
+      <li>Do not photograph or copy payment screens, receipts with full card numbers, or Stripe onboarding URLs on untrusted devices.</li>
     </ul>
 
-    <h2>4. Коммуникации и медиа</h2>
+    <h2>4. Communications & media</h2>
     <ul>
-      <li>Чат и звонки в приложении предназначены только для поддержки заказа.</li>
-      <li>Загружаемые фото и файлы (мастерская, выполненная работа, документы) должны быть уместными и законными.</li>
-      <li>Не загружайте вредоносный контент или материалы, нарушающие права других лиц.</li>
+      <li>In-app chat and calls are for order support only.</li>
+      <li>Uploaded photos and files (shop, completed work, documents) must be appropriate and lawful.</li>
+      <li>Do not upload malicious content or material that infringes others' rights.</li>
     </ul>
 
-    <h2>5. Геолокация</h2>
+    <h2>5. Location</h2>
     <p>
-      Геолокация используется для маршрутов, статуса прибытия и зоны обслуживания. Отключите
-      доступ к GPS в настройках системы, когда вы не на смене, если не хотите передавать координаты.
+      Location is used for routing, arrival status, and service area. Disable
+      GPS access in system settings when you are off shift if you do not want to share coordinates.
     </p>
 
-    <h2>6. Безопасность устройства и сети</h2>
+    <h2>6. Device & network security</h2>
     <ul>
-      <li>Обновляйте ОС телефона и приложение AutoHandy Master.</li>
-      <li>По возможности избегайте чувствительных действий в незащищённых публичных Wi‑Fi сетях.</li>
-      <li>Включите блокировку устройства (PIN, биометрия) на случай потери телефона.</li>
+      <li>Keep your phone OS and AutoHandy Master app up to date.</li>
+      <li>Avoid sensitive actions on unsecured public Wi‑Fi when possible.</li>
+      <li>Enable device lock (PIN, biometrics) in case your phone is lost.</li>
     </ul>
 
-    <h2>7. Сообщение об инцидентах</h2>
+    <h2>7. Reporting incidents</h2>
     <p>
-      При обнаружении проблемы безопасности, утечки данных или злоупотребления информацией клиентов
-      немедленно свяжитесь с нами:
-      <a href="mailto:support@autohandy.com">support@autohandy.com</a>. Мы проведём расследование
-      и при необходимости ограничим доступ к аккаунтам.
+      If you discover a security issue, data breach, or misuse of customer information,
+      contact us immediately at
+      <a href="mailto:support@autohandy.com">support@autohandy.com</a>. We will investigate
+      and restrict account access if necessary.
     </p>
 
-    <h2>8. Ваши обязанности как исполнителя</h2>
+    <h2>8. Your responsibilities as a service provider</h2>
     <ul>
-      <li>Поддерживайте актуальную информацию о мастерской и услугах.</li>
-      <li>Выполняйте заказы добросовестно; мошенничество может привести к блокировке и правовым последствиям.</li>
-      <li>Соблюдайте применимое законодательство об автосервисе и защите прав потребителей в вашем регионе.</li>
+      <li>Keep your shop and service information up to date.</li>
+      <li>Complete orders in good faith; fraud may lead to suspension and legal consequences.</li>
+      <li>Comply with applicable auto service and consumer protection laws in your region.</li>
     </ul>
 
-    <h2>9. Обновления</h2>
+    <h2>9. Updates</h2>
     <p>
-      Мы можем пересматривать условия безопасности и использования. Продолжение работы с приложением
-      после обновлений означает принятие новой редакции.
+      We may revise these security and use terms. Continued use of the app
+      after updates means you accept the new version.
     </p>
     </article>
   </div>

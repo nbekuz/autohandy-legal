@@ -6,9 +6,9 @@ import { usePageSeo } from '@/composables/usePageSeo'
 import PageHeader from '@/components/PageHeader.vue'
 
 usePageSeo({
-  title: 'AutoHandy Master — Контакты и поддержка',
+  title: 'AutoHandy Master — Contact & Support',
   description:
-    'Свяжитесь со службой поддержки AutoHandy Master: помощь с аккаунтом, заказами, выплатами Stripe Connect, запросами конфиденциальности и сообщениями об ошибках.',
+    'Contact AutoHandy Master support for help with your account, orders, Stripe Connect payouts, privacy requests, and bug reports.',
 })
 
 const route = useRoute()
@@ -18,38 +18,38 @@ const isBugReport = computed(() => route.query.topic === 'bug')
 const contactSections = [
   {
     key: 'general',
-    title: 'Общая поддержка',
-    description: 'Доступ к аккаунту, заказы, проблемы с приложением и общие вопросы.',
+    title: 'General support',
+    description: 'Account access, orders, app issues, and general questions.',
     email: 'support@autohandy.com',
     subject: '',
   },
   {
     key: 'bug',
-    title: 'Сообщить об ошибке',
-    description: 'Опишите проблему, шаги воспроизведения и модель устройства — мы разберёмся.',
+    title: 'Report a bug',
+    description: 'Describe the issue, steps to reproduce, and your device model — we will investigate.',
     email: 'support@autohandy.com',
-    subject: 'Сообщение об ошибке — AutoHandy Master',
+    subject: 'Bug report — AutoHandy Master',
   },
   {
     key: 'privacy',
-    title: 'Конфиденциальность и данные',
-    description: 'Запросы на доступ, исправление или удаление персональных данных в рамках закона.',
+    title: 'Privacy & data',
+    description: 'Requests to access, correct, or delete personal data under applicable law.',
     email: 'support@autohandy.com',
-    subject: 'Запрос конфиденциальности — AutoHandy Master',
+    subject: 'Privacy request — AutoHandy Master',
   },
   {
     key: 'security',
-    title: 'Безопасность',
-    description: 'Сообщите об уязвимости, утечке данных или злоупотреблении информацией клиентов.',
+    title: 'Security',
+    description: 'Report a vulnerability, data breach, or misuse of customer information.',
     email: 'support@autohandy.com',
-    subject: 'Сообщение о безопасности — AutoHandy Master',
+    subject: 'Security report — AutoHandy Master',
   },
   {
     key: 'payout',
-    title: 'Выплаты и Stripe Connect',
-    description: 'Пропущенные или неверные выплаты, верификация и вопросы по Connect.',
+    title: 'Payouts & Stripe Connect',
+    description: 'Missing or incorrect payouts, verification, and Connect account questions.',
     email: 'support@autohandy.com',
-    subject: 'Вопрос о выплате — AutoHandy Master',
+    subject: 'Payout question — AutoHandy Master',
   },
 ]
 
@@ -62,9 +62,9 @@ function mailto(email: string, subject: string) {
 <template>
   <div>
     <PageHeader
-      title="Контакты"
-      subtitle="Помощь с аккаунтом, заказами, выплатами, конфиденциальностью и сообщениями об ошибках."
-      breadcrumb="Контакты"
+      title="Contact"
+      subtitle="Help with your account, orders, payouts, privacy, and bug reports."
+      breadcrumb="Contact"
     />
     <div class="mx-auto max-w-3xl px-4 py-8 sm:px-8 sm:py-12">
     <a-alert
@@ -72,8 +72,8 @@ function mailto(email: string, subject: string) {
       type="info"
       show-icon
       class="!mb-8"
-      message="Сообщение об ошибке"
-      description="Выберите раздел «Сообщить об ошибке» ниже или напишите на support@autohandy.com с описанием проблемы."
+      message="Bug report"
+      description="Select the Report a bug section below or email support@autohandy.com with a description of the issue."
     />
 
     <div class="mb-10 grid gap-4 sm:grid-cols-2">
@@ -96,33 +96,33 @@ function mailto(email: string, subject: string) {
     </div>
 
     <div class="prose-legal">
-      <h2>Как написать нам</h2>
+      <h2>How to reach us</h2>
       <ul>
-        <li>Укажите зарегистрированный номер телефона или название мастерской.</li>
-        <li>Для вопросов по заказу или выплате приложите <strong>ID заказа</strong> из приложения Master.</li>
-        <li>Не отправляйте по email полные номера карт, пароли Stripe или секретные ключи.</li>
-        <li>На несрочные запросы ответим в течение <strong>2 рабочих дней</strong>.</li>
+        <li>Include your registered phone number or shop name.</li>
+        <li>For order or payout questions, attach the <strong>order ID</strong> from the Master app.</li>
+        <li>Do not email full card numbers, Stripe passwords, or secret keys.</li>
+        <li>We respond to non-urgent requests within <strong>2 business days</strong>.</li>
       </ul>
 
       <a-alert
         type="warning"
         show-icon
         class="!my-6"
-        message="Только официальные каналы"
+        message="Official channels only"
       >
         <template #description>
-          AutoHandy никогда не запрашивает пароль Stripe или ссылки верификации в неофициальных
-          сообщениях. Используйте только
+          AutoHandy will never ask for your Stripe password or verification links in unofficial
+          messages. Use only
           <a href="mailto:support@autohandy.com">support@autohandy.com</a>
-          или поддержку в приложении.
+          or in-app support.
         </template>
       </a-alert>
 
       <p class="text-sm text-ink-muted">
-        Связанные документы:
-        <RouterLink to="/privacy">Политика конфиденциальности</RouterLink>
+        Related documents:
+        <RouterLink to="/privacy">Privacy Policy</RouterLink>
         ·
-        <RouterLink to="/security">Условия использования</RouterLink>
+        <RouterLink to="/security">Terms of Use</RouterLink>
       </p>
     </div>
     </div>

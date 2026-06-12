@@ -13,7 +13,7 @@ defineProps<{
     <div class="mx-auto max-w-3xl px-4 py-8 sm:px-8 sm:py-10">
       <a-breadcrumb class="!mb-4">
         <a-breadcrumb-item>
-          <RouterLink to="/" class="no-underline text-ink-muted hover:text-brand">Главная</RouterLink>
+          <RouterLink to="/" class="no-underline text-ink-muted hover:text-brand">Home</RouterLink>
         </a-breadcrumb-item>
         <a-breadcrumb-item>{{ breadcrumb }}</a-breadcrumb-item>
       </a-breadcrumb>

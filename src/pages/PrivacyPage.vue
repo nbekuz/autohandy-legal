@@ -4,130 +4,130 @@ import { usePageSeo } from '@/composables/usePageSeo'
 import PageHeader from '@/components/PageHeader.vue'
 
 usePageSeo({
-  title: 'AutoHandy Master — Политика конфиденциальности',
+  title: 'AutoHandy Master — Privacy Policy',
   description:
-    'Политика конфиденциальности AutoHandy Master: какие данные собираются, как работают заказы водителей, выплаты через Stripe Connect и ваши права.',
+    'AutoHandy Master privacy policy: what data we collect, how driver orders work, Stripe Connect payouts, and your rights.',
 })
 </script>
 
 <template>
   <div>
     <PageHeader
-      title="Политика конфиденциальности"
-      subtitle="AutoHandy Master · Обновлено: 22 мая 2026 г."
-      breadcrumb="Политика конфиденциальности"
+      title="Privacy Policy"
+      subtitle="AutoHandy Master · Last updated: May 22, 2026"
+      breadcrumb="Privacy Policy"
     />
     <article class="mx-auto max-w-3xl px-4 py-8 sm:px-8 sm:py-12 prose-legal">
     <p>
-      Настоящая Политика конфиденциальности описывает, как <strong>AutoHandy Master</strong>
-      («мы», «приложение») собирает, использует и защищает информацию, когда вы используете
-      наше мобильное приложение в качестве мастера или автосервиса, подключённого к платформе AutoHandy.
+      This Privacy Policy describes how <strong>AutoHandy Master</strong>
+      ("we", "the app") collects, uses, and protects information when you use
+      our mobile application as a technician or auto shop connected to the AutoHandy platform.
     </p>
 
-    <h2>1. Кто мы</h2>
+    <h2>1. Who we are</h2>
     <p>
-      AutoHandy Master — приложение для исполнителей платформы AutoHandy. Оно помогает принимать
-      и управлять заказами на ремонт, общаться с клиентами, строить маршрут до места работы,
-      вести профиль мастерской и получать выплаты за выполненные услуги.
+      AutoHandy Master is the app for service providers on the AutoHandy platform. It helps you accept
+      and manage repair orders, communicate with customers, navigate to job sites,
+      maintain your shop profile, and receive payouts for completed services.
     </p>
 
-    <h2>2. Какие данные мы собираем</h2>
+    <h2>2. Data we collect</h2>
     <ul>
-      <li><strong>Данные аккаунта:</strong> номер телефона, имя, email (если указан), фото профиля, адрес мастерской и роль (Master).</li>
-      <li><strong>Верификация:</strong> одноразовые SMS-коды для входа и безопасности аккаунта.</li>
-      <li><strong>Геолокация:</strong> GPS-координаты при передаче позиции, навигации к клиенту или обновлении зоны обслуживания — только с вашего разрешения.</li>
-      <li><strong>Заказы и работа:</strong> заказы от <strong>водителей</strong> (клиентов платформы), детали работ, данные автомобиля, расписание, фото, чат, услуги, отзывы и записи о завершении.</li>
-      <li><strong>Платежи и выплаты:</strong> ID аккаунта Stripe Connect, статус верификации, история выплат, суммы заказов, комиссия платформы и банковские данные, которые вы передаёте Stripe (полностью не хранятся на наших серверах).</li>
-      <li><strong>Данные устройства:</strong> токены push-уведомлений (Firebase), версия приложения и технические логи, необходимые для работы и безопасности сервиса.</li>
+      <li><strong>Account data:</strong> phone number, name, email (if provided), profile photo, shop address, and role (Master).</li>
+      <li><strong>Verification:</strong> one-time SMS codes for sign-in and account security.</li>
+      <li><strong>Location:</strong> GPS coordinates when sharing position, navigating to a customer, or updating your service area — only with your permission.</li>
+      <li><strong>Orders & work:</strong> orders from <strong>drivers</strong> (platform customers), job details, vehicle data, schedule, photos, chat, services, reviews, and completion records.</li>
+      <li><strong>Payments & payouts:</strong> Stripe Connect account ID, verification status, payout history, order amounts, platform fees, and bank details you provide to Stripe (not stored in full on our servers).</li>
+      <li><strong>Device data:</strong> push notification tokens (Firebase), app version, and technical logs needed for service operation and security.</li>
     </ul>
 
-    <h2>3. Как мы используем ваши данные</h2>
+    <h2>3. How we use your data</h2>
     <ul>
-      <li>Аутентификация и поддержание аккаунта.</li>
-      <li>Подбор заказов клиентов (включая срочные/SOS и индивидуальные заявки).</li>
-      <li>Чат в приложении, карты и обновление статуса заказа.</li>
-      <li>Расчёт показателей (рейтинг, процент принятия/завершения, сводка заработка).</li>
-      <li>Обработка платежей водителей за выполненные услуги и перевод вашей доли на Stripe Connect.</li>
-      <li>Отображение заработка, истории выплат и статуса подключения Stripe в приложении.</li>
-      <li>Push-уведомления о новых заказах, сообщениях и изменении статуса.</li>
-      <li>Улучшение надёжности, предотвращение мошенничества и соблюдение законодательства.</li>
+      <li>Authentication and account maintenance.</li>
+      <li>Matching you with customer orders (including urgent/SOS and custom requests).</li>
+      <li>In-app chat, maps, and order status updates.</li>
+      <li>Calculating metrics (rating, acceptance/completion rate, earnings summary).</li>
+      <li>Processing driver payments for completed services and transferring your share via Stripe Connect.</li>
+      <li>Displaying earnings, payout history, and Stripe connection status in the app.</li>
+      <li>Push notifications for new orders, messages, and status changes.</li>
+      <li>Improving reliability, preventing fraud, and complying with applicable law.</li>
     </ul>
 
-    <h2>4. Платежи, заказы водителей и Stripe Connect</h2>
+    <h2>4. Payments, driver orders & Stripe Connect</h2>
     <p>
-      AutoHandy Master используется исполнителями («Мастерами»), которые оказывают
-      <strong>реальные автомобильные услуги на месте</strong> клиентам через приложение для водителей.
-      Ниже описано, как происходят платежи на платформе.
+      AutoHandy Master is used by service providers ("Masters") who deliver
+      <strong>real on-site automotive services</strong> to customers through the driver app.
+      Below is how payments work on the platform.
     </p>
 
-    <h3>4.1 Как работают заказы и оплата</h3>
+    <h3>4.1 How orders and payment work</h3>
     <ul>
-      <li><strong>Водитель</strong> оформляет заказ на ремонт или обслуживание через клиентское приложение AutoHandy (стандартный, срочный/SOS или индивидуальный).</li>
-      <li>Вы как Мастер <strong>принимаете</strong> заказ в AutoHandy Master и выполняете согласованную услугу на месте.</li>
-      <li>Оплата заказа проходит через <strong>платформенную оплату</strong> (карта или другие методы, поддерживаемые AutoHandy и Stripe). Вы не списываете средства с карты водителя вручную в приложении Master.</li>
-      <li>После завершения работы и возможного периода проверки или удержания ваш <strong>чистый заработок</strong> по заказу планируется к выплате на подключённый аккаунт.</li>
+      <li>A <strong>driver</strong> places a repair or maintenance order through the AutoHandy customer app (standard, urgent/SOS, or custom).</li>
+      <li>You as a Master <strong>accept</strong> the order in AutoHandy Master and perform the agreed service on site.</li>
+      <li>Order payment is processed through <strong>platform payment</strong> (card or other methods supported by AutoHandy and Stripe). You do not manually charge the driver's card in the Master app.</li>
+      <li>After the work is completed and any review or hold period, your <strong>net earnings</strong> for the order are scheduled for payout to your connected account.</li>
     </ul>
 
-    <h3>4.2 Stripe Connect (реальный счёт для выплат)</h3>
+    <h3>4.2 Stripe Connect (real payout account)</h3>
     <p>
-      Чтобы получать деньги за выполненную работу, необходимо подключить <strong>реальный аккаунт Stripe Connect</strong>
-      на ваше имя или зарегистрированный бизнес. Это не виртуальный баланс только внутри приложения —
-      выплаты отправляются через Stripe на банковский или дебетовый счёт, который вы верифицируете в Stripe.
+      To receive payment for completed work, you must connect a <strong>real Stripe Connect account</strong>
+      in your name or registered business. This is not a virtual balance inside the app only —
+      payouts are sent through Stripe to the bank or debit account you verify with Stripe.
     </p>
     <ul>
-      <li>Мы передаём Stripe: данные личности и бизнеса, налоговую информацию при необходимости, статус Connect, ID заказов, суммы, комиссии и инструкции по выплатам.</li>
-      <li>Мы <strong>не</strong> храним полные номера карт или банковских счетов на серверах AutoHandy. Stripe является платёжным процессором и провайдером выплат.</li>
-      <li>Приложение показывает историю выплат, доступный баланс и шаги подключения; чувствительные банковские данные вводятся в интерфейсах Stripe.</li>
-      <li>AutoHandy может удерживать <strong>комиссию платформы</strong> с каждого заказа; сумма к выплате отображается в приложении заранее.</li>
-      <li>Возвраты, отмены и чарджбэки обрабатываются по правилам платформы, статусу заказа и политикам Stripe; корректировки могут уменьшить или отложить выплату.</li>
+      <li>We share with Stripe: identity and business data, tax information when required, Connect status, order IDs, amounts, fees, and payout instructions.</li>
+      <li>We do <strong>not</strong> store full card or bank account numbers on AutoHandy servers. Stripe is the payment processor and payout provider.</li>
+      <li>The app shows payout history, available balance, and onboarding steps; sensitive bank details are entered in Stripe interfaces.</li>
+      <li>AutoHandy may deduct a <strong>platform fee</strong> from each order; the payout amount is shown in the app in advance.</li>
+      <li>Refunds, cancellations, and chargebacks are handled per platform rules, order status, and Stripe policies; adjustments may reduce or delay payouts.</li>
     </ul>
 
-    <h3>4.3 Чего мы не делаем</h3>
+    <h3>4.3 What we do not do</h3>
     <ul>
-      <li>Мы не продаём ваши персональные или платёжные данные.</li>
-      <li>Мы не выплачиваем Мастерам вне Stripe Connect за заказы платформы, если иное явно не указано поддержкой письменно.</li>
-      <li>Наличные или внеплатформенные платежи за заказы, созданные в AutoHandy, могут нарушать условия платформы и не покрываются этим процессом выплат.</li>
+      <li>We do not sell your personal or payment data.</li>
+      <li>We do not pay Masters outside Stripe Connect for platform orders unless explicitly stated in writing by support.</li>
+      <li>Cash or off-platform payments for orders created in AutoHandy may violate platform terms and are not covered by this payout process.</li>
     </ul>
 
-    <h2>5. Передача данных третьим лицам</h2>
-    <p>Мы можем передавать данные только в объёме, необходимом для работы сервиса:</p>
+    <h2>5. Sharing with third parties</h2>
+    <p>We may share data only as needed to operate the service:</p>
     <ul>
-      <li><strong>Водителям (клиентам)</strong> по активным заказам — ограниченные контактные данные и детали работы.</li>
-      <li><strong>Stripe</strong> — подключение Connect, приём платежей, антифрод, балансы, переводы и налоговая отчётность при необходимости.</li>
-      <li><strong>Google Maps / Directions</strong> — маршруты и отображение карт.</li>
-      <li><strong>Firebase</strong> — push-уведомления.</li>
-      <li>Облачным хостинг-провайдерам и API, обрабатывающим данные от нашего имени по договорным обязательствам.</li>
+      <li><strong>Drivers (customers)</strong> for active orders — limited contact details and job information.</li>
+      <li><strong>Stripe</strong> — Connect onboarding, payment processing, fraud prevention, balances, transfers, and tax reporting when required.</li>
+      <li><strong>Google Maps / Directions</strong> — routing and map display.</li>
+      <li><strong>Firebase</strong> — push notifications.</li>
+      <li>Cloud hosting providers and APIs processing data on our behalf under contractual obligations.</li>
     </ul>
-    <p>Мы не продаём ваши персональные данные.</p>
+    <p>We do not sell your personal data.</p>
 
-    <h2>6. Хранение данных</h2>
+    <h2>6. Data retention</h2>
     <p>
-      Мы храним данные аккаунта и заказов, пока аккаунт активен, а также столько, сколько требуется
-      для бухгалтерии, споров и соблюдения законодательства. Вы можете запросить удаление аккаунта
-      с учётом незавершённых заказов и обязательств по выплатам.
+      We retain account and order data while your account is active, and as long as required
+      for accounting, disputes, and legal compliance. You may request account deletion
+      subject to open orders and payout obligations.
     </p>
 
-    <h2>7. Ваши права и настройки</h2>
+    <h2>7. Your rights & controls</h2>
     <ul>
-      <li>Обновление профиля в приложении.</li>
-      <li>Управление разрешениями на геолокацию и уведомления в настройках устройства.</li>
-      <li>Обращение в поддержку для доступа, исправления или удаления персональных данных в рамках применимого законодательства.</li>
+      <li>Update your profile in the app.</li>
+      <li>Manage location and notification permissions in device settings.</li>
+      <li>Contact support to access, correct, or delete personal data under applicable law.</li>
     </ul>
 
-    <h2>8. Дети</h2>
-    <p>Приложение не предназначено для пользователей младше 18 лет.</p>
+    <h2>8. Children</h2>
+    <p>The app is not intended for users under 18 years of age.</p>
 
-    <h2>9. Изменения</h2>
+    <h2>9. Changes</h2>
     <p>
-      Мы можем обновлять эту политику. Существенные изменения будут отражены в приложении или на сайте.
-      Продолжение использования после изменений означает принятие обновлённой политики.
+      We may update this policy. Material changes will be reflected in the app or on this site.
+      Continued use after changes means you accept the updated policy.
     </p>
 
-    <h2>10. Контакты</h2>
+    <h2>10. Contact</h2>
     <p>
-      Вопросы о конфиденциальности:
-      <a href="mailto:support@autohandy.com">support@autohandy.com</a> или
-      <RouterLink to="/contact">страница контактов</RouterLink>.
+      Privacy questions:
+      <a href="mailto:support@autohandy.com">support@autohandy.com</a> or our
+      <RouterLink to="/contact">contact page</RouterLink>.
     </p>
     </article>
   </div>

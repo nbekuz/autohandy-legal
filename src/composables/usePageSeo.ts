@@ -14,6 +14,6 @@ export function usePageSeo(seo: PageSeo) {
       { property: 'og:description', content: seo.description },
       { property: 'og:type', content: 'website' },
     ],
-    htmlAttrs: { lang: 'ru' },
+    htmlAttrs: { lang: 'en' },
   })
 }

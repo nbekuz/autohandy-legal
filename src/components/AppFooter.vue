@@ -7,15 +7,15 @@ const year = new Date().getFullYear()
 
 const footerLinks = [
   {
-    label: 'Сообщить об ошибке',
+    label: 'Report a bug',
     to: { name: 'contact', query: { topic: 'bug' } },
   },
   {
-    label: 'Политика конфиденциальности',
+    label: 'Privacy Policy',
     to: { name: 'privacy' },
   },
   {
-    label: 'Условия использования',
+    label: 'Terms of Use',
     to: { name: 'security' },
   },
 ]
@@ -35,12 +35,12 @@ const footerLinks = [
 
       <div class="flex flex-col gap-4 text-sm sm:flex-row sm:items-center sm:justify-between">
         <p class="font-medium text-brand">
-          AutoHandy © {{ year }}. Все права защищены.
+          AutoHandy © {{ year }}. All rights reserved.
         </p>
 
         <nav
           class="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-1 sm:gap-y-2"
-          aria-label="Юридические документы"
+          aria-label="Legal documents"
         >
           <template v-for="(link, index) in footerLinks" :key="link.label">
             <span v-if="index > 0" class="hidden text-slate-300 sm:inline" aria-hidden="true">|</span>

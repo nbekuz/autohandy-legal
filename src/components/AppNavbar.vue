@@ -8,10 +8,10 @@ const route = useRoute()
 const drawerOpen = ref(false)
 
 const navLinks = [
-  { label: 'Главная', to: { name: 'home' } },
-  { label: 'Конфиденциальность', to: { name: 'privacy' } },
-  { label: 'Условия', to: { name: 'security' } },
-  { label: 'Контакты', to: { name: 'contact' } },
+  { label: 'Home', to: { name: 'home' } },
+  { label: 'Privacy', to: { name: 'privacy' } },
+  { label: 'Terms', to: { name: 'security' } },
+  { label: 'Contact', to: { name: 'contact' } },
 ]
 
 const activeName = computed(() => route.name as string)
@@ -26,7 +26,7 @@ watch(() => route.fullPath, () => {
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 border-b border-brand/10 bg-white/90 backdrop-blur-md">
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md">
     <div class="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-8">
       <RouterLink
         to="/"
@@ -36,7 +36,7 @@ watch(() => route.fullPath, () => {
       </RouterLink>
 
       <!-- Desktop nav -->
-      <nav class="hidden items-center gap-1 md:flex" aria-label="Основная навигация">
+      <nav class="hidden items-center gap-1 md:flex" aria-label="Main navigation">
         <RouterLink
           v-for="link in navLinks"
           :key="link.label"
@@ -56,7 +56,7 @@ watch(() => route.fullPath, () => {
       <button
         type="button"
         class="flex h-10 w-10 items-center justify-center rounded-lg text-ink-heading transition-colors hover:bg-brand-light md:hidden"
-        aria-label="Открыть меню"
+        aria-label="Open menu"
         @click="drawerOpen = true"
       >
         <MenuOutlined class="text-lg" />
@@ -69,10 +69,10 @@ watch(() => route.fullPath, () => {
       placement="right"
       :width="280"
       :closable="true"
-      title="Меню"
+      title="Menu"
       class="nav-drawer"
     >
-      <nav class="flex flex-col gap-1" aria-label="Мобильная навигация">
+      <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
         <RouterLink
           v-for="link in navLinks"
           :key="link.label"
