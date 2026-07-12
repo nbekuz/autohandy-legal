@@ -12,6 +12,7 @@ import { usePageSeo } from '@/composables/usePageSeo'
 import { useSiteMode } from '@/composables/useSiteMode'
 import AppLogo from '@/components/AppLogo.vue'
 import StoreBadges from '@/components/StoreBadges.vue'
+import VerificationFlowSection from '@/components/VerificationFlowSection.vue'
 
 const { pageRoute } = useSiteMode()
 
@@ -188,6 +189,8 @@ const steps = [
         </div>
       </div>
     </section>
+
+    <VerificationFlowSection variant="team" />
 
     <section class="border-t border-brand/10 bg-brand py-12 sm:py-16">
       <div class="mx-auto max-w-3xl px-4 text-center sm:px-8">
