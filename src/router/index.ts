@@ -27,6 +27,11 @@ const router = createRouter({
           name: 'contact',
           component: () => import('@/pages/ContactPage.vue'),
         },
+        {
+          path: 'sms-opt-in',
+          name: 'sms-opt-in',
+          component: () => import('@/pages/SmsOptInPage.vue'),
+        },
       ],
     },
     {
