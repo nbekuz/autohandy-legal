@@ -32,6 +32,11 @@ const router = createRouter({
           name: 'sms-opt-in',
           component: () => import('@/pages/SmsOptInPage.vue'),
         },
+        {
+          path: ':pathMatch(.*)*',
+          name: 'not-found',
+          component: () => import('@/pages/NotFoundPage.vue'),
+        },
       ],
     },
     {
@@ -57,6 +62,11 @@ const router = createRouter({
           path: 'contact',
           name: 'team-contact',
           component: () => import('@/pages/ContactPage.vue'),
+        },
+        {
+          path: ':pathMatch(.*)*',
+          name: 'team-not-found',
+          component: () => import('@/pages/NotFoundPage.vue'),
         },
       ],
     },

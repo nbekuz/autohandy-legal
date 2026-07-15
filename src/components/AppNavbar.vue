@@ -11,6 +11,7 @@ const { isTeam, homeRoute, switchRoute, switchLabel, pageRoute } = useSiteMode()
 
 const navLinks = computed(() => [
   { label: 'Home', to: homeRoute.value },
+  { label: 'SMS Opt-In', to: { name: 'sms-opt-in' } },
   { label: 'Privacy', to: pageRoute('privacy') },
   { label: 'Terms', to: pageRoute('security') },
   { label: 'Contact', to: pageRoute('contact') },
@@ -32,7 +33,7 @@ watch(() => route.fullPath, () => {
     <div class="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-8">
       <RouterLink
         :to="homeRoute"
-        class="no-underline transition-opacity hover:opacity-80"
+        class="no-underline shrink-0 transition-opacity hover:opacity-80"
       >
         <AppLogo size="sm" show-text :team="isTeam" />
       </RouterLink>

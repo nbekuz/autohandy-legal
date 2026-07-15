@@ -8,6 +8,8 @@ import StoreBadges from './StoreBadges.vue'
 const year = new Date().getFullYear()
 const { isTeam, homeRoute, pageRoute } = useSiteMode()
 
+const storeVariant = computed(() => (isTeam.value ? 'team' : 'user'))
+
 const footerLinks = computed(() => [
   {
     label: 'Report a bug',
@@ -31,7 +33,7 @@ const footerLinks = computed(() => [
         <RouterLink :to="homeRoute" class="no-underline shrink-0 transition-opacity hover:opacity-80">
           <AppLogo size="md" :team="isTeam" />
         </RouterLink>
-        <StoreBadges :variant="isTeam ? 'team' : 'user'" size="sm" />
+        <StoreBadges :variant="storeVariant" size="sm" />
       </div>
 
       <div class="my-6 border-t border-brand/10" />
