@@ -16,7 +16,7 @@ const { pageRoute } = useSiteMode()
 usePageSeo({
   title: 'AutoHandy — On-Demand Auto Repair for Drivers',
   description:
-    'Download AutoHandy for iOS and Android. Request on-site car repair, track your technician, chat in-app, and pay securely through the platform.',
+    'Download AutoHandy from the App Store. Request on-site car repair, track your technician, chat in-app, and pay securely through the platform.',
 })
 
 const features = [
@@ -183,7 +183,7 @@ const steps = [
           Download AutoHandy
         </h2>
         <p class="mb-8 text-sm text-white/85 sm:text-base">
-          Available for iOS and Android.
+          Available on the App Store.
         </p>
         <div class="flex justify-center">
           <StoreBadges variant="user" />

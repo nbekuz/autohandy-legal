@@ -79,6 +79,7 @@ const largeTextClass = computed(() =>
 
       <!-- Google Play -->
       <a
+        v-if="playStoreUrl"
         :href="playStoreUrl"
         target="_blank"
         rel="noopener noreferrer"

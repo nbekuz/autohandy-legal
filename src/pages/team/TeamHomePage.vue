@@ -18,7 +18,7 @@ const { pageRoute } = useSiteMode()
 usePageSeo({
   title: 'AutoHandy Team — App for Auto Repair Technicians',
   description:
-    'Download AutoHandy Team for iOS and Android. Accept driver orders, manage jobs, chat with customers, and receive payouts through Stripe Connect.',
+    'Download AutoHandy Masters for iOS and Android. Accept driver orders, manage jobs, chat with customers, and receive payouts through Stripe Connect.',
 })
 
 const features = [
