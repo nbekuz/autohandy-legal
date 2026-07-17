@@ -10,43 +10,55 @@ withDefaults(
 
 const userScreens = [
   {
-    src: '/assets/a_1.png',
+    src: '/assets/a_1.jpeg',
     step: '01',
-    title: 'Enter phone number',
-    text: 'Drivers enter their mobile number to start account registration.',
+    title: 'Open login',
+    text: 'Drivers see the phone sign-in screen with an empty number field and SMS consent unchecked.',
   },
   {
-    src: '/assets/a_2.png',
+    src: '/assets/a_2.jpeg',
     step: '02',
+    title: 'Enter phone number',
+    text: 'The mobile number is entered. SMS messages are not sent until consent is given.',
+  },
+  {
+    src: '/assets/a_3.jpeg',
+    step: '03',
     title: 'Consent & request code',
     text: 'Users check SMS consent and tap Get code to receive a verification message.',
   },
   {
-    src: '/assets/a_3.png',
-    step: '03',
+    src: '/assets/a_4.jpeg',
+    step: '04',
     title: 'Enter SMS code',
-    text: 'A one-time code is sent by SMS. The user enters it to verify their number.',
+    text: 'A 4-digit one-time code is sent by SMS. The user enters it to verify their number.',
   },
 ]
 
 const teamScreens = [
   {
-    src: '/assets/am_1.png',
+    src: '/assets/am_1.jpeg',
     step: '01',
-    title: 'Enter phone number',
-    text: 'Technicians enter their mobile number to create a professional account.',
+    title: 'Open login',
+    text: 'Technicians see the phone sign-in screen with an empty number field and SMS consent unchecked.',
   },
   {
-    src: '/assets/am_2.png',
+    src: '/assets/am_2.jpeg',
     step: '02',
+    title: 'Enter phone number',
+    text: 'The mobile number is entered. SMS messages are not sent until consent is given.',
+  },
+  {
+    src: '/assets/am_3.jpeg',
+    step: '03',
     title: 'Consent & request code',
     text: 'Users check SMS consent and tap Get code to receive a verification message.',
   },
   {
-    src: '/assets/am_3.png',
-    step: '03',
+    src: '/assets/am_4.png',
+    step: '04',
     title: 'Enter SMS code',
-    text: 'A one-time code is sent by SMS. The user enters it to verify their number.',
+    text: 'A 4-digit one-time code is sent by SMS. The user enters it to verify their number.',
   },
 ]
 </script>
@@ -70,7 +82,7 @@ const teamScreens = [
         </p>
       </div>
 
-      <div class="grid gap-8 sm:gap-6 md:grid-cols-3">
+      <div class="grid gap-8 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <article
           v-for="screen in variant === 'team' ? teamScreens : userScreens"
           :key="screen.src"
