@@ -85,7 +85,7 @@ const largeTextClass = computed(() =>
         rel="noopener noreferrer"
         :class="[
           badgeClass,
-          'inline-flex shrink-0 items-center rounded-lg bg-black text-white no-underline transition-opacity hover:opacity-85',
+          'inline-flex shrink-0 items-center rounded-lg bg-slate-800 text-white no-underline transition-opacity hover:opacity-85',
         ]"
         aria-label="Get it on Google Play"
       >
