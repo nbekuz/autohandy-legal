@@ -39,11 +39,18 @@ const router = createRouter({
         },
       ],
     },
-    // User-app Smart QR landing — outside site chrome (no navbar/footer)
+    // Smart QR landings — outside site chrome (no navbar/footer)
     {
       path: '/qr',
       name: 'qr',
       component: () => import('@/pages/QrPage.vue'),
+      meta: { qrVariant: 'user' },
+    },
+    {
+      path: '/team/qr',
+      name: 'team-qr',
+      component: () => import('@/pages/QrPage.vue'),
+      meta: { qrVariant: 'team' },
     },
     {
       path: '/team',

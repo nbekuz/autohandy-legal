@@ -1,4 +1,11 @@
 import {
+  TEAM_ANDROID_APP_LINKS_CONFIGURED,
+  TEAM_ANDROID_PACKAGE_ID,
+  TEAM_APP_CUSTOM_SCHEME,
+  TEAM_APP_DEEP_LINK_PATH,
+  TEAM_APP_STORE_URL,
+  TEAM_PLAY_STORE_URL,
+  TEAM_UNIVERSAL_LINKS_CONFIGURED,
   USER_ANDROID_APP_LINKS_CONFIGURED,
   USER_ANDROID_PACKAGE_ID,
   USER_APP_CUSTOM_SCHEME,
@@ -11,6 +18,8 @@ import { detectPlatform, type ClientPlatform } from '@/utils/platform'
 
 const STORE_FALLBACK_MS = 1600
 
+export type SmartQrVariant = 'user' | 'team'
+
 export interface SmartQrRedirectResult {
   platform: ClientPlatform
   /** Desktop: caller should render store badges instead of redirecting. */
@@ -19,24 +28,50 @@ export interface SmartQrRedirectResult {
   status: 'idle' | 'opening-app' | 'redirecting-store'
 }
 
-function customSchemeUrl(): string | null {
-  if (!USER_APP_CUSTOM_SCHEME) return null
-  const path = USER_APP_DEEP_LINK_PATH.replace(/^\//, '')
-  return `${USER_APP_CUSTOM_SCHEME}://${path}`
+interface SmartQrConfig {
+  appStoreUrl: string
+  playStoreUrl: string
+  androidPackageId: string
+  customScheme: string | null
+  deepLinkPath: string
+  universalLinksConfigured: boolean
+  androidAppLinksConfigured: boolean
 }
 
-/**
- * Android Intent URL: opens the app when installed; otherwise browser uses fallback URL.
- * Requires a custom scheme handled by the User app (or verified App Links + https host).
- */
-function androidIntentUrl(fallbackUrl: string, scheme: string): string {
-  const path = USER_APP_DEEP_LINK_PATH.replace(/^\//, '')
+const USER_QR_CONFIG: SmartQrConfig = {
+  appStoreUrl: USER_APP_STORE_URL,
+  playStoreUrl: USER_PLAY_STORE_URL,
+  androidPackageId: USER_ANDROID_PACKAGE_ID,
+  customScheme: USER_APP_CUSTOM_SCHEME,
+  deepLinkPath: USER_APP_DEEP_LINK_PATH,
+  universalLinksConfigured: USER_UNIVERSAL_LINKS_CONFIGURED,
+  androidAppLinksConfigured: USER_ANDROID_APP_LINKS_CONFIGURED,
+}
+
+const TEAM_QR_CONFIG: SmartQrConfig = {
+  appStoreUrl: TEAM_APP_STORE_URL,
+  playStoreUrl: TEAM_PLAY_STORE_URL,
+  androidPackageId: TEAM_ANDROID_PACKAGE_ID,
+  customScheme: TEAM_APP_CUSTOM_SCHEME,
+  deepLinkPath: TEAM_APP_DEEP_LINK_PATH,
+  universalLinksConfigured: TEAM_UNIVERSAL_LINKS_CONFIGURED,
+  androidAppLinksConfigured: TEAM_ANDROID_APP_LINKS_CONFIGURED,
+}
+
+function customSchemeUrl(config: SmartQrConfig): string | null {
+  if (!config.customScheme) return null
+  const path = config.deepLinkPath.replace(/^\//, '')
+  return `${config.customScheme}://${path}`
+}
+
+function androidIntentUrl(config: SmartQrConfig, fallbackUrl: string, scheme: string): string {
+  const path = config.deepLinkPath.replace(/^\//, '')
   const encodedFallback = encodeURIComponent(fallbackUrl)
 
   return (
     `intent://${path}#Intent;` +
     `scheme=${scheme};` +
-    `package=${USER_ANDROID_PACKAGE_ID};` +
+    `package=${config.androidPackageId};` +
     `S.browser_fallback_url=${encodedFallback};` +
     `end`
   )
@@ -46,10 +81,6 @@ function go(url: string) {
   window.location.replace(url)
 }
 
-/**
- * Try custom-scheme open, then fall back to the store if the page is still visible.
- * Used when Universal Links / App Links are not verified yet.
- */
 function tryOpenThenStore(appUrl: string, storeUrl: string): () => void {
   const started = Date.now()
 
@@ -76,14 +107,15 @@ function tryOpenThenStore(appUrl: string, storeUrl: string): () => void {
 }
 
 /**
- * Smart QR redirect for the User app only.
+ * Smart QR redirect for User or Team app.
  *
  * - Android: Intent (when custom scheme is set) or Play Store; App Links when configured
  * - iOS: custom scheme when set, else App Store; Universal Links when configured mean
  *   the OS may open the app for this HTTPS URL before JS runs
  * - Desktop: no redirect — show store buttons
  */
-export function runUserSmartQrRedirect(): SmartQrRedirectResult {
+export function runSmartQrRedirect(variant: SmartQrVariant = 'user'): SmartQrRedirectResult {
+  const config = variant === 'team' ? TEAM_QR_CONFIG : USER_QR_CONFIG
   const platform = detectPlatform()
 
   if (platform === 'desktop') {
@@ -91,40 +123,35 @@ export function runUserSmartQrRedirect(): SmartQrRedirectResult {
   }
 
   if (platform === 'ios') {
-    // If Universal Links are live and the app is installed, iOS may already have
-    // opened the app for /qr. Reaching this JS means we are still in Safari → store.
-    if (USER_UNIVERSAL_LINKS_CONFIGURED) {
-      go(USER_APP_STORE_URL)
+    if (config.universalLinksConfigured) {
+      go(config.appStoreUrl)
       return { platform, showDesktopUi: false, status: 'redirecting-store' }
     }
 
-    const schemeUrl = customSchemeUrl()
+    const schemeUrl = customSchemeUrl(config)
     if (schemeUrl) {
-      tryOpenThenStore(schemeUrl, USER_APP_STORE_URL)
+      tryOpenThenStore(schemeUrl, config.appStoreUrl)
       return { platform, showDesktopUi: false, status: 'opening-app' }
     }
 
-    // TODO: Set USER_APP_CUSTOM_SCHEME and/or enable Universal Links via
-    // /.well-known/apple-app-site-association so an installed app can open from /qr.
-    go(USER_APP_STORE_URL)
+    // TODO: Set custom scheme and/or enable Universal Links via
+    // /.well-known/apple-app-site-association so an installed app can open from the QR URL.
+    go(config.appStoreUrl)
     return { platform, showDesktopUi: false, status: 'redirecting-store' }
   }
 
-  // Android
-  if (USER_ANDROID_APP_LINKS_CONFIGURED) {
-    // Verified App Links: still in browser ⇒ app not installed / link not claimed → Play.
-    go(USER_PLAY_STORE_URL)
+  if (config.androidAppLinksConfigured) {
+    go(config.playStoreUrl)
     return { platform, showDesktopUi: false, status: 'redirecting-store' }
   }
 
-  if (USER_APP_CUSTOM_SCHEME) {
-    go(androidIntentUrl(USER_PLAY_STORE_URL, USER_APP_CUSTOM_SCHEME))
+  if (config.customScheme) {
+    go(androidIntentUrl(config, config.playStoreUrl, config.customScheme))
     return { platform, showDesktopUi: false, status: 'opening-app' }
   }
 
-  // TODO: Host /.well-known/assetlinks.json, enable App Links in the User app, and set
-  // USER_ANDROID_APP_LINKS_CONFIGURED — or set USER_APP_CUSTOM_SCHEME — so /qr can open
-  // the installed app before falling back to Play.
-  go(USER_PLAY_STORE_URL)
+  // TODO: Host /.well-known/assetlinks.json and enable App Links, or set a custom scheme,
+  // so the QR URL can open the installed app before falling back to Play.
+  go(config.playStoreUrl)
   return { platform, showDesktopUi: false, status: 'redirecting-store' }
 }

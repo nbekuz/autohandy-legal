@@ -43,6 +43,38 @@ export const USER_ANDROID_APP_LINKS_CONFIGURED = false
 
 /** AutoHandy Masters — technician app (App Store & Google Play) */
 export const TEAM_APP_STORE_URL =
-  'https://apps.apple.com/uz/app/autohandy-masters/id6761601427'
+  'https://apps.apple.com/us/app/autohandy-masters/id6761601427'
 export const TEAM_PLAY_STORE_URL =
   'https://play.google.com/store/apps/details?id=com.nbek.autohandymaster'
+
+/** Android applicationId — derived from TEAM_PLAY_STORE_URL (`id=` query). */
+export const TEAM_ANDROID_PACKAGE_ID =
+  new URL(TEAM_PLAY_STORE_URL).searchParams.get('id') ?? 'com.nbek.autohandymaster'
+
+/**
+ * Custom URL scheme for the Team/Master app.
+ * TODO: Replace `null` with the real scheme once configured in the native apps.
+ */
+export const TEAM_APP_CUSTOM_SCHEME: string | null = null
+
+/**
+ * Path opened inside the Team app via custom scheme / Intent.
+ */
+export const TEAM_APP_DEEP_LINK_PATH = 'qr'
+
+/**
+ * Universal Links (iOS) / App Links (Android) for https://<domain>/team/qr.
+ *
+ * Currently NOT configured in this repo.
+ *
+ * TODO (server / domain):
+ * - Extend `/.well-known/apple-app-site-association` with the Team iOS bundle id
+ *   and paths `["/team/qr","/team/qr/*"]`.
+ * - Extend `/.well-known/assetlinks.json` with package_name `TEAM_ANDROID_PACKAGE_ID`
+ *   and the Team app’s signing certificate SHA-256 fingerprints.
+ * - Enable Associated Domains (iOS) and Digital Asset Links (Android) in the Team app.
+ *
+ * When those are live, set both flags to `true` so /team/qr can open the installed app via HTTPS.
+ */
+export const TEAM_UNIVERSAL_LINKS_CONFIGURED = false
+export const TEAM_ANDROID_APP_LINKS_CONFIGURED = false
